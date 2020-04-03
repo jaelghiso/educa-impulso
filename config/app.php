@@ -119,7 +119,7 @@ return [
     |
     */
 
-    'key' => base_decode('TXFi6v1LCsvpMb6G19tnhygNaLOOSs4y08tDXjsA4yg='),
+    'key' => 'TXFi6v1LCsvpMb6G19tnhygNaLOOSs4y08tDXjsA4yg=',
 
     'cipher' => 'AES-128-CBC',
 
