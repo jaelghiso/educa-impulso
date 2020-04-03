@@ -22,10 +22,10 @@
 </head>
 <body>
     <div id="app">
-        <Homepage
+        <Dashboard
             :user-name='@json(auth()->user()->name)'
             :user-id='@json(auth()->user()->id)'
-        ></Homepage>
+        ></Dashboard>
     </div>
 </body>
 </html>

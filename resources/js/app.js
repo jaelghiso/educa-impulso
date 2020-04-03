@@ -2,8 +2,17 @@ require("./bootstrap");
 
 import Vue from "vue";
 import VueRouter from "vue-router";
+import swal from "sweetalert";
+
+import Dashboard from "./pages/Dashboard";
+import Welcome from "./pages/Welcome";
 import Homepage from "./pages/Homepage";
-import FooterPage from "./components/FooterPage";
+
+import News from "./pages/News";
+
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+
 import Read from "./components/Read";
 import Create from "./components/Create";
 import Update from "./components/Update";
@@ -14,6 +23,29 @@ Vue.use(VueRouter);
 const router = new VueRouter({
     mode: "history",
     routes: [
+        {
+            path: "/",
+            name: "home",
+            props: true
+        },
+        {
+            path: "/news",
+            name: "news",
+            component: News,
+            props: true
+        },
+        {
+            path: "/login",
+            name: "login",
+            component: Login,
+            props: true
+        },
+        {
+            path: "/register",
+            name: "register",
+            component: Register,
+            props: true
+        },
         {
             path: "/admin/dashboard",
             name: "read",
@@ -38,5 +70,5 @@ const router = new VueRouter({
 const app = new Vue({
     el: "#app",
     router,
-    components: { Homepage, FooterPage, Comments }
+    components: { Dashboard, Welcome, Comments }
 });
