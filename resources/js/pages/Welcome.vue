@@ -3,17 +3,17 @@
         <nav class="navbar navbar-expand-md shadow-sm bg--dark-blue">
             <a class="navbar-brand">
                 <img
-                    src="/images/logo+impulso.png"
+                    :src="logo_src"
                     alt="logo-impulso"
-                    height="80px;"
+                    class="logo--setup-header"
                 />
             </a>
             <div class="navbar-nav ml-auto">
-                <router-link
+                <!-- <router-link
                     :to="{ name: 'home' }"
                     class="nav-item p-2 text-uppercase text-secondary"
                     >Home</router-link
-                >
+                > -->
                 <router-link
                     :to="{ name: 'login' }"
                     class="nav-item p-2 text-uppercase text-white"
@@ -35,9 +35,9 @@
                 <div class="container">
                     <div class="col-md-3 col-sm-12">
                         <img
-                            src="/images/logo+impulso.png"
+                            :src="logo_src"
                             alt="logo-impulso"
-                            height="80px;"
+                            class="logo--setup"
                         />
                         <p class="m-2 bg--primary-text">
                             Avda. Gral. San Martín 4722 Esq. Gilberto Bellini,
@@ -116,6 +116,7 @@
 }
 #navbar {
     color: #0e1753;
+    width: 100%;
     height: auto;
     padding: 20px;
     background-color: #ffc907;
@@ -132,7 +133,21 @@
     border-radius: 4px;
     color: #f5f5f5;
 }
+.logo--setup {
+    height: 80px;
+    padding: 10px;
+}
+.logo--setup-header {
+    height: 100px;
+    padding: 10px;
+}
 </style>
 <script>
-export default {};
+export default {
+    data() {
+        return {
+            logo_src: "images/logo-impulso.png"
+        };
+    }
+};
 </script>

@@ -65,8 +65,15 @@
 </template>
 <script>
 export default {
+    props: {
+        userId: {
+            type: Number,
+            required: true
+        }
+    },
     data() {
         return {
+            logo_src: "images/logo-impulso.png",
             user: "",
             pass: "",
             error: false,
@@ -80,7 +87,8 @@ export default {
                     email: this.user,
                     password: this.pass
                 })
-                .then(() => {
+                .then(response => {
+                    console.log(response);
                     swal({
                         title: "Has iniciado sesión",
                         text: this.user,

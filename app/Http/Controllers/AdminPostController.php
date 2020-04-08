@@ -17,7 +17,7 @@ class AdminPostController extends Controller
                 return view('admin.dashboard');
             }
             if ($request->user()->hasRole('user')) {
-                return view('welcome');
+                return view('home');
             }
         }
     }

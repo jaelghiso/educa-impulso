@@ -2,11 +2,7 @@
     <div>
         <nav class="navbar navbar-expand-md shadow-sm bg--dark-blue">
             <a class="navbar-brand">
-                <img
-                    src="/images/logo+impulso.png"
-                    alt="logo-impulso"
-                    height="80px;"
-                />
+                <img :src="logo_src" alt="logo-impulso" height="80px;" />
             </a>
             <div class="navbar-nav ml-auto">
                 <router-link
@@ -67,7 +63,7 @@
                 <div class="container">
                     <div class="col-md-3 col-sm-12">
                         <img
-                            src="/images/logo+impulso.png"
+                            :src="logo_src"
                             alt="logo-impulso"
                             height="80px;"
                         />
@@ -154,7 +150,9 @@ export default {
         }
     },
     data() {
-        return {};
+        return {
+            logo_src: "images/logo-impulso.png"
+        };
     },
     methods: {
         logout() {

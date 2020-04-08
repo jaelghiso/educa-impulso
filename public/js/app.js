@@ -2523,10 +2523,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     userId: {
@@ -2539,7 +2535,9 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   data: function data() {
-    return {};
+    return {
+      logo_src: "images/logo-impulso.png"
+    };
   },
   methods: {
     logout: function logout() {
@@ -2580,6 +2578,92 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     userId: {
@@ -2592,7 +2676,9 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   data: function data() {
-    return {};
+    return {
+      logo_src: "images/logo-impulso.png"
+    };
   },
   methods: {
     logout: function logout() {
@@ -2680,8 +2766,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
+  props: {
+    userId: {
+      type: Number,
+      required: true
+    }
+  },
   data: function data() {
     return {
+      logo_src: "images/logo-impulso.png",
       user: "",
       pass: "",
       error: false,
@@ -2695,7 +2788,8 @@ __webpack_require__.r(__webpack_exports__);
       axios.post("/login", {
         email: this.user,
         password: this.pass
-      }).then(function () {
+      }).then(function (response) {
+        console.log(response);
         swal({
           title: "Has iniciado sesión",
           text: _this.user,
@@ -3004,7 +3098,22 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ __webpack_exports__["default"] = ({});
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      logo_src: "images/logo-impulso.png"
+    };
+  }
+});
 
 /***/ }),
 
@@ -9517,7 +9626,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n* {\r\n    box-sizing: border-box;\n}\n#navbar {\r\n    color: #0e1753;\r\n    height: auto;\r\n    padding: 20px;\r\n    background-color: #ffc907;\n}\n.bg--dark-blue {\r\n    background-color: #0e1753;\n}\n.bg--primary-text {\r\n    color: #0e1753;\n}\n.btn--bg-primary {\r\n    background-color: #422c6b;\r\n    padding: 8px 18px;\r\n    border-radius: 4px;\r\n    color: #f5f5f5;\n}\r\n", ""]);
+exports.push([module.i, "\n* {\r\n    box-sizing: border-box;\n}\n#navbar {\r\n    color: #0e1753;\r\n    width: 100%;\r\n    height: auto;\r\n    padding: 20px;\r\n    background-color: #ffc907;\n}\n.bg--dark-blue {\r\n    background-color: #0e1753;\n}\n.bg--primary-text {\r\n    color: #0e1753;\n}\n.btn--bg-primary {\r\n    background-color: #422c6b;\r\n    padding: 8px 18px;\r\n    border-radius: 4px;\r\n    color: #f5f5f5;\n}\n.logo--setup {\r\n    height: 80px;\r\n    padding: 10px;\n}\n.logo--setup-header {\r\n    height: 100px;\r\n    padding: 10px;\n}\r\n", ""]);
 
 // exports
 
@@ -49428,7 +49537,11 @@ var render = function() {
       "nav",
       { staticClass: "navbar navbar-expand-md shadow-sm bg--dark-blue" },
       [
-        _vm._m(0),
+        _c("a", { staticClass: "navbar-brand" }, [
+          _c("img", {
+            attrs: { src: _vm.logo_src, alt: "logo-impulso", height: "80px;" }
+          })
+        ]),
         _vm._v(" "),
         _c(
           "div",
@@ -49482,7 +49595,7 @@ var render = function() {
             "div",
             { staticClass: "jumbotron mt-4" },
             [
-              _vm._m(1),
+              _vm._m(0),
               _vm._v(" "),
               _c(
                 "router-link",
@@ -49521,42 +49634,7 @@ var render = function() {
       ])
     ]),
     _vm._v(" "),
-    _vm._m(2)
-  ])
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("a", { staticClass: "navbar-brand" }, [
-      _c("img", {
-        attrs: {
-          src: "/images/logo+impulso.png",
-          alt: "logo-impulso",
-          height: "80px;"
-        }
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("h1", { staticClass: "bg--primary-text" }, [
-      _vm._v(
-        "\n                        Bienvenido a\n                        "
-      ),
-      _c("span", { staticClass: "display-5 text-warning text-uppercase" }, [
-        _vm._v("\n                            Admin Noticias!")
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("footer", [
+    _c("footer", [
       _c(
         "nav",
         {
@@ -49568,7 +49646,7 @@ var staticRenderFns = [
             _c("div", { staticClass: "col-md-3 col-sm-12" }, [
               _c("img", {
                 attrs: {
-                  src: "/images/logo+impulso.png",
+                  src: _vm.logo_src,
                   alt: "logo-impulso",
                   height: "80px;"
                 }
@@ -49591,103 +49669,130 @@ var staticRenderFns = [
               ])
             ]),
             _vm._v(" "),
-            _c(
-              "div",
-              {
-                staticClass: "col-md-6 col-sm-12 d-flex justify-content-around"
-              },
-              [
-                _c("ul", { staticClass: "nav flex-column" }, [
-                  _c("li", { staticClass: "nav-item p-1 bg--primary-text" }, [
-                    _vm._v(
-                      "\n                            Inicio\n                        "
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("li", { staticClass: "nav-item p-1 bg--primary-text" }, [
-                    _vm._v(
-                      "\n                            Inscripciones\n                        "
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("li", { staticClass: "nav-item p-1 bg--primary-text" }, [
-                    _vm._v(
-                      "\n                            Contacto\n                        "
-                    )
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("ul", { staticClass: "nav flex-column" }, [
-                  _c("li", { staticClass: "nav-item p-1 bg--primary-text" }, [
-                    _vm._v(
-                      "\n                            Institución\n                        "
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("li", { staticClass: "nav-item p-1 bg--primary-text" }, [
-                    _vm._v(
-                      "\n                            Fundación\n                        "
-                    )
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("ul", { staticClass: "nav flex-column" }, [
-                  _c("li", { staticClass: "nav-item p-1" }, [
-                    _vm._v("Testimonios")
-                  ]),
-                  _vm._v(" "),
-                  _c("li", { staticClass: "nav-item p-1 bg--primary-text" }, [
-                    _vm._v(
-                      "\n                            Newsletter\n                        "
-                    )
-                  ])
-                ])
-              ]
-            ),
+            _vm._m(1),
             _vm._v(" "),
-            _c("div", { staticClass: "col-md-3 col-sm-12" }, [
-              _c("div", { staticClass: "d-inline" }, [
-                _c("a", { staticClass: "p-1", attrs: { href: "" } }, [
-                  _vm._v("Instagram")
-                ]),
-                _vm._v(" "),
-                _c("a", { staticClass: "p-1", attrs: { href: "" } }, [
-                  _vm._v("Twitter")
-                ]),
-                _vm._v(" "),
-                _c("a", { staticClass: "p-1", attrs: { href: "" } }, [
-                  _vm._v("Facebook")
-                ]),
-                _vm._v(" "),
-                _c("a", { staticClass: "p-1", attrs: { href: "" } }, [
-                  _vm._v("Web")
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "form-group" }, [
-                _c("input", {
-                  staticClass: "form-control",
-                  attrs: { type: "text", placeholder: "Ingresa tu email" }
-                }),
-                _vm._v(" "),
-                _c("p", { staticClass: "p-1 bg--primary-text" }, [
-                  _vm._v(
-                    "\n                            Permanece en contacto con nosotros para conocer\n                            las últimas noticias!\n                        "
-                  )
-                ])
-              ])
-            ])
+            _vm._m(2)
           ])
         ]
       ),
       _vm._v(" "),
-      _c("div", { staticClass: "py-2 bg--dark-blue" }, [
-        _c("div", { staticClass: "col-md-12 col-sm-12" }, [
-          _c("p", { staticClass: "m-0 text-center text-white" }, [
+      _vm._m(3)
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("h1", { staticClass: "bg--primary-text" }, [
+      _vm._v(
+        "\n                        Bienvenido a\n                        "
+      ),
+      _c("span", { staticClass: "display-5 text-warning text-uppercase" }, [
+        _vm._v("\n                            Admin Noticias!")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "col-md-6 col-sm-12 d-flex justify-content-around" },
+      [
+        _c("ul", { staticClass: "nav flex-column" }, [
+          _c("li", { staticClass: "nav-item p-1 bg--primary-text" }, [
             _vm._v(
-              "\n                    Copyright © Great Idea South 2020\n                "
+              "\n                            Inicio\n                        "
+            )
+          ]),
+          _vm._v(" "),
+          _c("li", { staticClass: "nav-item p-1 bg--primary-text" }, [
+            _vm._v(
+              "\n                            Inscripciones\n                        "
+            )
+          ]),
+          _vm._v(" "),
+          _c("li", { staticClass: "nav-item p-1 bg--primary-text" }, [
+            _vm._v(
+              "\n                            Contacto\n                        "
             )
           ])
+        ]),
+        _vm._v(" "),
+        _c("ul", { staticClass: "nav flex-column" }, [
+          _c("li", { staticClass: "nav-item p-1 bg--primary-text" }, [
+            _vm._v(
+              "\n                            Institución\n                        "
+            )
+          ]),
+          _vm._v(" "),
+          _c("li", { staticClass: "nav-item p-1 bg--primary-text" }, [
+            _vm._v(
+              "\n                            Fundación\n                        "
+            )
+          ])
+        ]),
+        _vm._v(" "),
+        _c("ul", { staticClass: "nav flex-column" }, [
+          _c("li", { staticClass: "nav-item p-1" }, [_vm._v("Testimonios")]),
+          _vm._v(" "),
+          _c("li", { staticClass: "nav-item p-1 bg--primary-text" }, [
+            _vm._v(
+              "\n                            Newsletter\n                        "
+            )
+          ])
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-md-3 col-sm-12" }, [
+      _c("div", { staticClass: "d-inline" }, [
+        _c("a", { staticClass: "p-1", attrs: { href: "" } }, [
+          _vm._v("Instagram")
+        ]),
+        _vm._v(" "),
+        _c("a", { staticClass: "p-1", attrs: { href: "" } }, [
+          _vm._v("Twitter")
+        ]),
+        _vm._v(" "),
+        _c("a", { staticClass: "p-1", attrs: { href: "" } }, [
+          _vm._v("Facebook")
+        ]),
+        _vm._v(" "),
+        _c("a", { staticClass: "p-1", attrs: { href: "" } }, [_vm._v("Web")])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "form-group" }, [
+        _c("input", {
+          staticClass: "form-control",
+          attrs: { type: "text", placeholder: "Ingresa tu email" }
+        }),
+        _vm._v(" "),
+        _c("p", { staticClass: "p-1 bg--primary-text" }, [
+          _vm._v(
+            "\n                            Permanece en contacto con nosotros para conocer\n                            las últimas noticias!\n                        "
+          )
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "py-2 bg--dark-blue" }, [
+      _c("div", { staticClass: "col-md-12 col-sm-12" }, [
+        _c("p", { staticClass: "m-0 text-center text-white" }, [
+          _vm._v(
+            "\n                    Copyright © Great Idea South 2020\n                "
+          )
         ])
       ])
     ])
@@ -49715,6 +49820,34 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
+    _c(
+      "nav",
+      { staticClass: "navbar navbar-expand-md shadow-sm bg--dark-blue" },
+      [
+        _c("a", { staticClass: "navbar-brand" }, [
+          _c("img", {
+            attrs: { src: _vm.logo_src, alt: "logo-impulso", height: "80px;" }
+          })
+        ]),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "navbar-nav ml-auto" },
+          [
+            _c(
+              "router-link",
+              {
+                staticClass: "nav-item p-2 text-uppercase text-secondary",
+                attrs: { to: { name: "news" } }
+              },
+              [_vm._v("Noticias")]
+            )
+          ],
+          1
+        )
+      ]
+    ),
+    _vm._v(" "),
     _c("div", { staticClass: "container mt-2" }, [
       _c("header", { staticClass: "d-inline" }, [
         _vm._v(
@@ -49723,7 +49856,7 @@ var render = function() {
         _c(
           "p",
           {
-            staticClass: "bg--primary-text",
+            staticClass: "float-right mr-3",
             staticStyle: { cursor: "pointer" },
             on: { click: _vm.logout }
           },
@@ -49735,10 +49868,157 @@ var render = function() {
       ])
     ]),
     _vm._v(" "),
-    _c("div", { staticClass: "container" }, [_c("router-view")], 1)
+    _c("footer", [
+      _c(
+        "nav",
+        {
+          staticClass: "navbar navbar-expand-md shadow-sm",
+          attrs: { id: "navbar" }
+        },
+        [
+          _c("div", { staticClass: "container" }, [
+            _c("div", { staticClass: "col-md-3 col-sm-12" }, [
+              _c("img", {
+                attrs: {
+                  src: _vm.logo_src,
+                  alt: "logo-impulso",
+                  height: "80px;"
+                }
+              }),
+              _vm._v(" "),
+              _c("p", { staticClass: "m-2 bg--primary-text" }, [
+                _vm._v(
+                  "\n                        Avda. Gral. San Martín 4722 Esq. Gilberto Bellini,\n                        CP. 12300.\n                    "
+                )
+              ]),
+              _vm._v(" "),
+              _c("p", { staticClass: "m-2 bg--primary-text" }, [
+                _vm._v("Montevideo, Uruguay")
+              ]),
+              _vm._v(" "),
+              _c("p", { staticClass: "m-2 bg--primary-text" }, [
+                _vm._v(
+                  "\n                        Teléfono: (+598) 2216 0050\n                    "
+                )
+              ])
+            ]),
+            _vm._v(" "),
+            _vm._m(0),
+            _vm._v(" "),
+            _vm._m(1)
+          ])
+        ]
+      ),
+      _vm._v(" "),
+      _vm._m(2)
+    ])
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "col-md-6 col-sm-12 d-flex justify-content-around" },
+      [
+        _c("ul", { staticClass: "nav flex-column" }, [
+          _c("li", { staticClass: "nav-item p-1 bg--primary-text" }, [
+            _vm._v(
+              "\n                            Inicio\n                        "
+            )
+          ]),
+          _vm._v(" "),
+          _c("li", { staticClass: "nav-item p-1 bg--primary-text" }, [
+            _vm._v(
+              "\n                            Inscripciones\n                        "
+            )
+          ]),
+          _vm._v(" "),
+          _c("li", { staticClass: "nav-item p-1 bg--primary-text" }, [
+            _vm._v(
+              "\n                            Contacto\n                        "
+            )
+          ])
+        ]),
+        _vm._v(" "),
+        _c("ul", { staticClass: "nav flex-column" }, [
+          _c("li", { staticClass: "nav-item p-1 bg--primary-text" }, [
+            _vm._v(
+              "\n                            Institución\n                        "
+            )
+          ]),
+          _vm._v(" "),
+          _c("li", { staticClass: "nav-item p-1 bg--primary-text" }, [
+            _vm._v(
+              "\n                            Fundación\n                        "
+            )
+          ])
+        ]),
+        _vm._v(" "),
+        _c("ul", { staticClass: "nav flex-column" }, [
+          _c("li", { staticClass: "nav-item p-1" }, [_vm._v("Testimonios")]),
+          _vm._v(" "),
+          _c("li", { staticClass: "nav-item p-1 bg--primary-text" }, [
+            _vm._v(
+              "\n                            Newsletter\n                        "
+            )
+          ])
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-md-3 col-sm-12" }, [
+      _c("div", { staticClass: "d-inline" }, [
+        _c("a", { staticClass: "p-1", attrs: { href: "" } }, [
+          _vm._v("Instagram")
+        ]),
+        _vm._v(" "),
+        _c("a", { staticClass: "p-1", attrs: { href: "" } }, [
+          _vm._v("Twitter")
+        ]),
+        _vm._v(" "),
+        _c("a", { staticClass: "p-1", attrs: { href: "" } }, [
+          _vm._v("Facebook")
+        ]),
+        _vm._v(" "),
+        _c("a", { staticClass: "p-1", attrs: { href: "" } }, [_vm._v("Web")])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "form-group" }, [
+        _c("input", {
+          staticClass: "form-control",
+          attrs: { type: "text", placeholder: "Ingresa tu email" }
+        }),
+        _vm._v(" "),
+        _c("p", { staticClass: "p-1 bg--primary-text" }, [
+          _vm._v(
+            "\n                            Permanece en contacto con nosotros para conocer\n                            las últimas noticias!\n                        "
+          )
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "py-2 bg--dark-blue" }, [
+      _c("div", { staticClass: "col-md-12 col-sm-12" }, [
+        _c("p", { staticClass: "m-0 text-center text-white" }, [
+          _vm._v(
+            "\n                    Copyright © Great Idea South 2020\n                "
+          )
+        ])
+      ])
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -50132,21 +50412,17 @@ var render = function() {
       "nav",
       { staticClass: "navbar navbar-expand-md shadow-sm bg--dark-blue" },
       [
-        _vm._m(0),
+        _c("a", { staticClass: "navbar-brand" }, [
+          _c("img", {
+            staticClass: "logo--setup-header",
+            attrs: { src: _vm.logo_src, alt: "logo-impulso" }
+          })
+        ]),
         _vm._v(" "),
         _c(
           "div",
           { staticClass: "navbar-nav ml-auto" },
           [
-            _c(
-              "router-link",
-              {
-                staticClass: "nav-item p-2 text-uppercase text-secondary",
-                attrs: { to: { name: "home" } }
-              },
-              [_vm._v("Home")]
-            ),
-            _vm._v(" "),
             _c(
               "router-link",
               {
@@ -50172,29 +50448,7 @@ var render = function() {
     _vm._v(" "),
     _c("div", { staticClass: "container" }, [_c("router-view")], 1),
     _vm._v(" "),
-    _vm._m(1)
-  ])
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("a", { staticClass: "navbar-brand" }, [
-      _c("img", {
-        attrs: {
-          src: "/images/logo+impulso.png",
-          alt: "logo-impulso",
-          height: "80px;"
-        }
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("footer", [
+    _c("footer", [
       _c(
         "nav",
         {
@@ -50205,11 +50459,8 @@ var staticRenderFns = [
           _c("div", { staticClass: "container" }, [
             _c("div", { staticClass: "col-md-3 col-sm-12" }, [
               _c("img", {
-                attrs: {
-                  src: "/images/logo+impulso.png",
-                  alt: "logo-impulso",
-                  height: "80px;"
-                }
+                staticClass: "logo--setup",
+                attrs: { src: _vm.logo_src, alt: "logo-impulso" }
               }),
               _vm._v(" "),
               _c("p", { staticClass: "m-2 bg--primary-text" }, [
@@ -50229,103 +50480,117 @@ var staticRenderFns = [
               ])
             ]),
             _vm._v(" "),
-            _c(
-              "div",
-              {
-                staticClass: "col-md-6 col-sm-12 d-flex justify-content-around"
-              },
-              [
-                _c("ul", { staticClass: "nav flex-column" }, [
-                  _c("li", { staticClass: "nav-item p-1 bg--primary-text" }, [
-                    _vm._v(
-                      "\n                            Inicio\n                        "
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("li", { staticClass: "nav-item p-1 bg--primary-text" }, [
-                    _vm._v(
-                      "\n                            Inscripciones\n                        "
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("li", { staticClass: "nav-item p-1 bg--primary-text" }, [
-                    _vm._v(
-                      "\n                            Contacto\n                        "
-                    )
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("ul", { staticClass: "nav flex-column" }, [
-                  _c("li", { staticClass: "nav-item p-1 bg--primary-text" }, [
-                    _vm._v(
-                      "\n                            Institución\n                        "
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("li", { staticClass: "nav-item p-1 bg--primary-text" }, [
-                    _vm._v(
-                      "\n                            Fundación\n                        "
-                    )
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("ul", { staticClass: "nav flex-column" }, [
-                  _c("li", { staticClass: "nav-item p-1" }, [
-                    _vm._v("Testimonios")
-                  ]),
-                  _vm._v(" "),
-                  _c("li", { staticClass: "nav-item p-1 bg--primary-text" }, [
-                    _vm._v(
-                      "\n                            Newsletter\n                        "
-                    )
-                  ])
-                ])
-              ]
-            ),
+            _vm._m(0),
             _vm._v(" "),
-            _c("div", { staticClass: "col-md-3 col-sm-12" }, [
-              _c("div", { staticClass: "d-inline" }, [
-                _c("a", { staticClass: "p-1", attrs: { href: "" } }, [
-                  _vm._v("Instagram")
-                ]),
-                _vm._v(" "),
-                _c("a", { staticClass: "p-1", attrs: { href: "" } }, [
-                  _vm._v("Twitter")
-                ]),
-                _vm._v(" "),
-                _c("a", { staticClass: "p-1", attrs: { href: "" } }, [
-                  _vm._v("Facebook")
-                ]),
-                _vm._v(" "),
-                _c("a", { staticClass: "p-1", attrs: { href: "" } }, [
-                  _vm._v("Web")
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "form-group" }, [
-                _c("input", {
-                  staticClass: "form-control",
-                  attrs: { type: "text", placeholder: "Ingresa tu email" }
-                }),
-                _vm._v(" "),
-                _c("p", { staticClass: "p-1 bg--primary-text" }, [
-                  _vm._v(
-                    "\n                            Permanece en contacto con nosotros para conocer\n                            las últimas noticias!\n                        "
-                  )
-                ])
-              ])
-            ])
+            _vm._m(1)
           ])
         ]
       ),
       _vm._v(" "),
-      _c("div", { staticClass: "py-2 bg--dark-blue" }, [
-        _c("div", { staticClass: "col-md-12 col-sm-12" }, [
-          _c("p", { staticClass: "m-0 text-center text-white" }, [
+      _vm._m(2)
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "col-md-6 col-sm-12 d-flex justify-content-around" },
+      [
+        _c("ul", { staticClass: "nav flex-column" }, [
+          _c("li", { staticClass: "nav-item p-1 bg--primary-text" }, [
             _vm._v(
-              "\n                    Copyright © Great Idea South 2020\n                "
+              "\n                            Inicio\n                        "
+            )
+          ]),
+          _vm._v(" "),
+          _c("li", { staticClass: "nav-item p-1 bg--primary-text" }, [
+            _vm._v(
+              "\n                            Inscripciones\n                        "
+            )
+          ]),
+          _vm._v(" "),
+          _c("li", { staticClass: "nav-item p-1 bg--primary-text" }, [
+            _vm._v(
+              "\n                            Contacto\n                        "
             )
           ])
+        ]),
+        _vm._v(" "),
+        _c("ul", { staticClass: "nav flex-column" }, [
+          _c("li", { staticClass: "nav-item p-1 bg--primary-text" }, [
+            _vm._v(
+              "\n                            Institución\n                        "
+            )
+          ]),
+          _vm._v(" "),
+          _c("li", { staticClass: "nav-item p-1 bg--primary-text" }, [
+            _vm._v(
+              "\n                            Fundación\n                        "
+            )
+          ])
+        ]),
+        _vm._v(" "),
+        _c("ul", { staticClass: "nav flex-column" }, [
+          _c("li", { staticClass: "nav-item p-1" }, [_vm._v("Testimonios")]),
+          _vm._v(" "),
+          _c("li", { staticClass: "nav-item p-1 bg--primary-text" }, [
+            _vm._v(
+              "\n                            Newsletter\n                        "
+            )
+          ])
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-md-3 col-sm-12" }, [
+      _c("div", { staticClass: "d-inline" }, [
+        _c("a", { staticClass: "p-1", attrs: { href: "" } }, [
+          _vm._v("Instagram")
+        ]),
+        _vm._v(" "),
+        _c("a", { staticClass: "p-1", attrs: { href: "" } }, [
+          _vm._v("Twitter")
+        ]),
+        _vm._v(" "),
+        _c("a", { staticClass: "p-1", attrs: { href: "" } }, [
+          _vm._v("Facebook")
+        ]),
+        _vm._v(" "),
+        _c("a", { staticClass: "p-1", attrs: { href: "" } }, [_vm._v("Web")])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "form-group" }, [
+        _c("input", {
+          staticClass: "form-control",
+          attrs: { type: "text", placeholder: "Ingresa tu email" }
+        }),
+        _vm._v(" "),
+        _c("p", { staticClass: "p-1 bg--primary-text" }, [
+          _vm._v(
+            "\n                            Permanece en contacto con nosotros para conocer\n                            las últimas noticias!\n                        "
+          )
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "py-2 bg--dark-blue" }, [
+      _c("div", { staticClass: "col-md-12 col-sm-12" }, [
+        _c("p", { staticClass: "m-0 text-center text-white" }, [
+          _vm._v(
+            "\n                    Copyright © Great Idea South 2020\n                "
+          )
         ])
       ])
     ])
@@ -65509,6 +65774,7 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
   components: {
     Dashboard: _pages_Dashboard__WEBPACK_IMPORTED_MODULE_3__["default"],
     Welcome: _pages_Welcome__WEBPACK_IMPORTED_MODULE_4__["default"],
+    Homepage: _pages_Homepage__WEBPACK_IMPORTED_MODULE_5__["default"],
     Comments: _components_Comments__WEBPACK_IMPORTED_MODULE_12__["default"]
   }
 });

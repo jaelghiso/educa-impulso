@@ -4,6 +4,10 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
+        <!-- CSRF Token -->
+        <meta name="csrf-token" content="{{ csrf_token() }}">
+        <script> window.Laravel = { csrfToken: 'csrf_token() ' } </script>
+
         <title>EducaImpulso</title>
 
         <!-- Fonts -->
@@ -13,8 +17,7 @@
     </head>
     <body>
         <div id="app">
-            <welcome :user-name='@json(auth()->user()->name)'
-                :user-id='@json(auth()->user()->id)'></welcome>
+            <welcome></welcome>
         </div>
         
         

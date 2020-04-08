@@ -70,5 +70,5 @@ const router = new VueRouter({
 const app = new Vue({
     el: "#app",
     router,
-    components: { Dashboard, Welcome, Comments }
+    components: { Dashboard, Welcome, Homepage, Comments }
 });
