@@ -17,8 +17,6 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 Route::get('/{any}', 'HomeController@index')->where('any', '.*');
-Route::get('/news', 'PostController@all');
-Route::get('/news/posts/{post}', 'PostController@single');
 
 Route::get('/{post}/comments', 'CommentController@index');
 Route::post('/{post}/comments', 'CommentController@store');

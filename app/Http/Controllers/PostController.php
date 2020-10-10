@@ -20,17 +20,6 @@ class PostController extends Controller
         return PostResource::collection(Post::latest()->paginate(7));
     }
 
-    public function all(){
-            return view('news.landing', [
-                'posts' => Post::latest()->paginate(7)
-            ]);
-    }
-
-    public function single(Post $post){
-        
-        return view('news.single', compact('post'));
-    }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -59,9 +48,9 @@ class PostController extends Controller
 
         $post = new Post;
 
-        if($request->hasFile('image')){
+        if ($request->hasFile('image')) {
             $image = $request->file('image');
-            $name = Str::slug($request->title, '-').'.'. $image->getClientOriginalExtension();
+            $name = Str::slug($request->title, '-') . '.' . $image->getClientOriginalExtension();
             $destinationPath = public_path('/uploads/posts');
             $imagePath = $destinationPath . "/" . $name;
             $image->move($destinationPath, $name);
@@ -108,7 +97,7 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        $this->validate($request,[
+        $this->validate($request, [
             'title' => 'required',
             'subtitle' => 'required',
             'body' => 'required',
@@ -131,6 +120,4 @@ class PostController extends Controller
 
         return response()->json(null, 204);
     }
-
-    
 }
