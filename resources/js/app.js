@@ -2,7 +2,12 @@ require("./bootstrap");
 
 import Vue from "vue";
 import VueRouter from "vue-router";
+import "v-markdown-editor/dist/v-markdown-editor.css";
 import swal from "sweetalert";
+
+import Editor from "v-markdown-editor";
+
+Vue.use(Editor);
 
 import { library } from "@fortawesome/fontawesome-svg-core";
 import {

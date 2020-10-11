@@ -58,14 +58,16 @@
                     <label for="body" class="text-default py-2"
                         >Contenido</label
                     >
-                    <textarea
-                        class="bg-transparent border border-muted-light rounded p-2 text-sm text-muted w-full"
+                    <!-- <textarea> </textarea> -->
+                    <markdown-editor
+                        class="bg-transparent border border-muted-light rounded p-2 text-sm text-default w-full"
                         ref="body"
                         id="body"
                         placeholder="Ingresa el texto del artículo aquí"
                         rows="8"
                         required
-                    ></textarea>
+                        toolbar="bold italic heading | image link | numlist bullist code quote | preview fullscreen"
+                    ></markdown-editor>
                     <p
                         v-if="errors.body"
                         class="bg-red-300 text-red-600 rounded p-2 m-1"

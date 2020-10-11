@@ -65,15 +65,14 @@
                     <label for="body" class="text-default py-2"
                         >Contenido</label
                     >
-                    <textarea
-                        id="body"
+                    <markdown-editor
+                        class="bg-transparent border border-muted-light rounded p-2 text-sm text-default w-full"
                         ref="body"
+                        id="body"
                         rows="15"
-                        cols="12"
-                        class="bg-transparent border border-muted-light rounded p-2 text-sm text-muted w-full"
-                        placeholder="Ingresa el texto de la noticia aquí.."
                         required
-                    ></textarea>
+                        toolbar="bold italic heading | image link | numlist bullist code quote | preview fullscreen"
+                    ></markdown-editor>
                 </div>
             </div>
             <div class="field mb-6">

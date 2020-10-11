@@ -30,6 +30,7 @@
         "pusher-js": "^5.1.1",
         "sweetalert": "^2.1.2",
         "tailwindcss": "^1.8.13",
+        "v-markdown-editor": "^1.2.6",
         "vue-router": "^3.1.6"
     }
 }
