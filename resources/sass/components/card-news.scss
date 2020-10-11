@@ -1,0 +1,20 @@
+.cardNews {
+    background-color: $light-grey;
+    height: auto;
+    width: 355px;
+    @apply .p-5 .mr-4 .my-4 .rounded-sm .shadow;
+
+    .cardNews-titleText {
+        color: $purple;
+        font-weight: 700;
+        @apply .pb-2 .mt-2;
+    }
+    .cardNews-descriptionText {
+        @apply .text-sm .pb-2;
+    }
+
+    .cardNews-image {
+        width: 100%;
+        height: 180px;
+    }
+}

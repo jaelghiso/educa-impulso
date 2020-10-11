@@ -1,91 +1,112 @@
 <template>
-    <div class="container mb-4">
-        <form>
+    <div class="mb-4">
+        <form action class="md:mx-auto card py-12 px-16 rounded shadow">
             <div
                 :class="[
-                    'form-group m-1 p-3',
-                    successful ? 'alert-success' : ''
+                    'control m-1 p-3',
+                    successful ? 'bg-green-200 rounded' : ''
                 ]"
             >
-                <span v-if="successful" class="label label-sucess"
+                <span v-if="successful" class="text-green-600"
                     >Noticia publicada!</span
                 >
             </div>
-
-            <div class="form-group">
-                <label for="title" class="bg--primary-text"
-                    >Título de la Noticia</label
-                >
-                <input
-                    type="title"
-                    ref="title"
-                    class="form-control"
-                    id="title"
-                    placeholder="Ingresa el título"
-                    required
-                />
-                <p v-if="errors.title" class="alert-danger p-2 m-1">
-                    {{ errors.title[0] }}
-                </p>
-            </div>
-            <div class="form-group">
-                <label for="subtitle" class="bg--primary-text">Subtítulo</label>
-                <input
-                    type="subtitle"
-                    ref="subtitle"
-                    class="form-control"
-                    id="subtitle"
-                    placeholder="Ingresa el subtítulo"
-                    required
-                />
-                <p v-if="errors.subtitle" class="alert-danger p-2 m-1">
-                    {{ errors.subtitle[0] }}
-                </p>
-            </div>
-
-            <div class="form-group">
-                <label for="body" class="bg--primary-text">Contenido</label>
-                <textarea
-                    class="form-control"
-                    ref="body"
-                    id="body"
-                    placeholder="Ingresa el texto del artículo aquí"
-                    rows="8"
-                    required
-                ></textarea>
-                <p v-if="errors.body" class="alert-danger p-2 m-1">
-                    {{ errors.body[0] }}
-                </p>
-            </div>
-            <div class="form-group">
-                <label for="image" class="bg--primary-text"
-                    >Imagen de Portada</label
-                >
-                <div class="custom-file mb-3">
+            <div class="field mb-6">
+                <div class="control">
+                    <label for="title" class="text-default py-2"
+                        >Título de la Noticia</label
+                    >
                     <input
-                        type="file"
-                        ref="image"
-                        name="image"
-                        class="custom-file-input"
-                        id="image"
+                        type="title"
+                        ref="title"
+                        class="bg-transparent border border-muted-light rounded p-2 text-sm text-muted w-full"
+                        id="title"
+                        placeholder="Ingresa el título"
                         required
                     />
-                    <label class="custom-file-label"
-                        >Seleccionar archivo...</label
+                    <p
+                        v-if="errors.title"
+                        class="bg-red-300 text-red-600 rounded p-2 m-1"
                     >
+                        {{ errors.title[0] }}
+                    </p>
                 </div>
-                <p v-if="errors.image" class="alert-danger p-2 m-1">
-                    {{ errors.image[0] }}
-                </p>
             </div>
-
-            <button
-                type="submit"
-                @click.prevent="create"
-                class="btn btn--bg-primary block"
-            >
-                Publicar &rarr;
-            </button>
+            <div class="field mb-6">
+                <div class="control">
+                    <label for="subtitle" class="text-default py-2"
+                        >Subtítulo</label
+                    >
+                    <input
+                        type="subtitle"
+                        ref="subtitle"
+                        class="bg-transparent border border-muted-light rounded p-2 text-sm text-muted w-full"
+                        id="subtitle"
+                        placeholder="Ingresa el subtítulo"
+                        required
+                    />
+                    <p
+                        v-if="errors.subtitle"
+                        class="bg-red-300 text-red-600 rounded p-2 m-1"
+                    >
+                        {{ errors.subtitle[0] }}
+                    </p>
+                </div>
+            </div>
+            <div class="field mb-6">
+                <div class="control">
+                    <label for="body" class="text-default py-2"
+                        >Contenido</label
+                    >
+                    <textarea
+                        class="bg-transparent border border-muted-light rounded p-2 text-sm text-muted w-full"
+                        ref="body"
+                        id="body"
+                        placeholder="Ingresa el texto del artículo aquí"
+                        rows="8"
+                        required
+                    ></textarea>
+                    <p
+                        v-if="errors.body"
+                        class="bg-red-300 text-red-600 rounded p-2 m-1"
+                    >
+                        {{ errors.body[0] }}
+                    </p>
+                </div>
+            </div>
+            <div class="field mb-6">
+                <div class="control">
+                    <label for="image" class="text-default py-2"
+                        >Imagen de Portada</label
+                    >
+                    <div class="border mb-3">
+                        <input
+                            type="file"
+                            ref="image"
+                            name="image"
+                            class="bg-transparent border border-muted-light rounded p-2 text-sm text-muted"
+                            id="image"
+                            required
+                        />
+                        <label class="px-3">Seleccionar archivo...</label>
+                    </div>
+                    <p
+                        v-if="errors.image"
+                        class="bg-red-300 text-red-600 rounded p-2 m-1"
+                    >
+                        {{ errors.image[0] }}
+                    </p>
+                </div>
+            </div>
+            <div class="fied mb-6">
+                <button
+                    type="submit"
+                    @click.prevent="create"
+                    class="button block"
+                >
+                    Publicar &rarr;
+                </button>
+            </div>
         </form>
     </div>
 </template>

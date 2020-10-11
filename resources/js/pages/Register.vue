@@ -1,80 +1,101 @@
 <template>
-    <div class="container my-5">
-        <div class="jumbotron col-md-6 offset-md-3 mt-5">
-            <h1 class="mt-3 text-center">EducaImpulso</h1>
-            <p class="form-text text-muted mb-4 text-center">
+    <div class="jumbotron">
+        <div class="col-md-8 offset-md-4 text-center">
+            <h1 class="text-2xl font-normal mb-10 text-muted text-center">
+                EducaImpulso
+            </h1>
+            <p class="text-muted mb-4 text-center">
                 Registra tu cuenta aquí!
             </p>
-            <div class="card-body">
-                <form method="POST" action="/register">
-                    <div class="form-group">
-                        <label for="name">Nombre</label>
-                        <input
-                            id="name"
-                            type="text"
-                            class="form-control"
-                            v-model="name"
-                            required
-                            autofocus
-                        />
-                        <p v-if="errors.name" class="alert-danger p-2 m-1">
-                            {{ errors.name[0] }}
-                        </p>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">E-Mail</label>
-                        <input
-                            id="email"
-                            type="email"
-                            class="form-control"
-                            v-model="email"
-                            required
-                        />
-                        <p v-if="errors.email" class="alert-danger p-2 m-1">
-                            {{ errors.email[0] }}
-                        </p>
-                    </div>
-                    <div class="form-group">
-                        <label for="password">Password</label>
-                        <input
-                            id="password"
-                            type="password"
-                            class="form-control"
-                            v-model="password"
-                            required
-                        />
-                        <p v-if="errors.password" class="alert-danger p-2 m-1">
-                            {{ errors.password[0] }}
-                        </p>
-                    </div>
-                    <div class="form-group">
-                        <label for="password-confirm">Confirm Password</label>
-                        <input
-                            id="password-confirm"
-                            type="password"
-                            class="form-control"
-                            v-model="password_confirmation"
-                            required
-                        />
-                        <p
-                            v-if="errors.password_confirmation"
-                            class="alert-danger p-2 m-1"
-                        >
-                            {{ errors.password_confirmation[0] }}
-                        </p>
-                    </div>
-
+            <form
+                method="POST"
+                action="/register"
+                class="md:w-1/2 md:mx-auto card py-12 px-16 rounded shadow"
+            >
+                <div class="field mb-6">
+                    <label for="name" class="text-default text-sm mb-2 block"
+                        >Nombre</label
+                    >
+                    <input
+                        id="name"
+                        type="text"
+                        class="bg-transparent border border-muted-light rounded p-2 text-xs text-muted w-full"
+                        v-model="name"
+                        placeholder="John Doe"
+                        required
+                        autofocus
+                    />
+                    <p v-if="errors.name" class="alert-danger p-2 m-1">
+                        {{ errors.name[0] }}
+                    </p>
+                </div>
+                <div class="field mb-6">
+                    <label for="email" class="text-default text-sm mb-2 block"
+                        >E-Mail</label
+                    >
+                    <input
+                        id="email"
+                        type="email"
+                        class="bg-transparent border border-muted-light rounded p-2 text-xs text-muted w-full"
+                        v-model="email"
+                        placeholder="john.doe@gmail.com"
+                        required
+                    />
+                    <p v-if="errors.email" class="alert-danger p-2 m-1">
+                        {{ errors.email[0] }}
+                    </p>
+                </div>
+                <div class="field mb-6">
+                    <label
+                        for="password"
+                        class="text-default text-sm mb-2 block"
+                        >Contraseña</label
+                    >
+                    <input
+                        id="password"
+                        type="password"
+                        class="bg-transparent border border-muted-light rounded p-2 text-xs text-muted w-full"
+                        v-model="password"
+                        placeholder="Contraseña"
+                        required
+                    />
+                    <p v-if="errors.password" class="alert-danger p-2 m-1">
+                        {{ errors.password[0] }}
+                    </p>
+                </div>
+                <div class="field mb-6">
+                    <label
+                        for="password-confirm"
+                        class="text-default text-sm mb-2 block"
+                        >Confirmar Contraseña</label
+                    >
+                    <input
+                        id="password-confirm"
+                        type="password"
+                        class="bg-transparent border border-muted-light rounded p-2 text-xs text-muted w-full"
+                        v-model="password_confirmation"
+                        placeholder="Confirmar Contraseña"
+                        required
+                    />
+                    <p
+                        v-if="errors.password_confirmation"
+                        class="alert-danger p-2 m-1"
+                    >
+                        {{ errors.password_confirmation[0] }}
+                    </p>
+                </div>
+                <div class="field mb-6">
                     <div class="text-center">
                         <button
                             type="submit"
-                            class="btn btn--bg-primary"
+                            class="button is-link mr-2"
                             @click.prevent="registro"
                         >
-                            Register
+                            Registrarse
                         </button>
                     </div>
-                </form>
-            </div>
+                </div>
+            </form>
         </div>
     </div>
 </template>

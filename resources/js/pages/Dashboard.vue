@@ -1,128 +1,109 @@
 <template>
-  <div>
-    <nav class="navbar navbar-expand-md shadow-sm bg--dark-blue">
-      <a class="navbar-brand">
-        <img :src="logo_src" alt="logo-impulso" height="80px;" />
-      </a>
-      <div class="navbar-nav ml-auto">
-        <router-link :to="{ name: 'read' }" class="nav-item p-2 text-uppercase text-secondary">Admin</router-link>
-        <router-link :to="{ name: 'home' }" class="nav-item p-2 text-uppercase text-secondary">Home</router-link>
-      </div>
-    </nav>
-    <div class="container mt-2">
-      <header class="d-inline">
-        Bienvenido, {{ userName }}
-        <a
-          @click="logout"
-          class="float-right mr-3 btn btn-secondary text-white"
-          style="cursor:pointer"
-        >Logout</a>
-      </header>
-      <div class="row">
-        <div class="col-md-4 col-sm-6">
-          <div class="jumbotron mt-4">
-            <h1 class="bg--primary-text">
-              Bienvenido a
-              <span class="display-5 text-warning text-uppercase">Admin Noticias!</span>
-            </h1>
-            <router-link :to="{ name: 'read' }" class="btn btn--bg-primary mt-2">Administrar &rarr;</router-link>
-            <hr />
-            <p class="lead">Presiona aquí debajo para crear una nueva Noticia:</p>
-            <router-link
-              :to="{ name: 'create', params: { userId } }"
-              class="btn btn-secondary text-uppercase bg--primary-text"
-            >New Post</router-link>
-          </div>
+    <div>
+        <nav class="bg-header shadow">
+            <div class="container mx-auto">
+                <div class="flex justify-between item-center py-3">
+                    <a class="flex justify-between item-center">
+                        <img
+                            :src="logo_src"
+                            alt="logo-impulso"
+                            class="logo--setup-header"
+                        />
+                    </a>
+                    <div class="flex items-center ml-auto">
+                        <router-link
+                            :to="{ name: 'read' }"
+                            class="text-sm text-white font-bold m-2"
+                            >Admin</router-link
+                        >
+                        <router-link
+                            :to="{ name: 'home' }"
+                            class="text-sm text-white font-bold m-2"
+                            >Home</router-link
+                        >
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <div class="container mx-auto mt-2">
+            <header class="my-4">
+                Bienvenido, {{ userName }}
+                <a
+                    @click="logout"
+                    class="float-right mr-3 button text-white"
+                    style="cursor:pointer"
+                    >Logout</a
+                >
+            </header>
+            <div class="container mx-auto">
+                <div class="flex flex-row">
+                    <div class="flex justify-start items-start py-3 my-3 mr-4">
+                        <div class="jumbotron mt-4">
+                            <h1 class="bg--primary-text py-2">
+                                Bienvenido a<br />
+                                <span
+                                    class="text-yellow-600 text-semibold text-3xl"
+                                    >Admin Noticias!</span
+                                >
+                            </h1>
+                            <router-link
+                                :to="{ name: 'read' }"
+                                class="button my-3"
+                                >Administrar &rarr;</router-link
+                            >
+                            <hr class="py-3 mt-5" />
+                            <p class="text-sm my-2">
+                                Presiona aquí debajo para crear una nueva
+                                Noticia:
+                            </p>
+                            <router-link
+                                :to="{ name: 'create', params: { userId } }"
+                                class="button bg--primary-text"
+                                >New Post</router-link
+                            >
+                        </div>
+                    </div>
+                    <div class="flex justify-around w-9/12 mx-auto">
+                        <router-view :userName="userName"></router-view>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="col-md-8 col-sm-6">
-          <router-view :userName="userName"></router-view>
-        </div>
-      </div>
+        <Footer />
     </div>
-    <footer>
-      <nav id="navbar" class="navbar navbar-expand-md shadow-sm">
-        <div class="container">
-          <div class="col-md-3 col-sm-12">
-            <img :src="logo_src" alt="logo-impulso" height="80px;" />
-            <p class="m-2 bg--primary-text">
-              Avda. Gral. San Martín 4722 Esq. Gilberto Bellini,
-              CP. 12300.
-            </p>
-            <p class="m-2 bg--primary-text">Montevideo, Uruguay</p>
-            <p class="m-2 bg--primary-text">Teléfono: (+598) 2216 0050</p>
-          </div>
-          <div class="col-md-6 col-sm-12 d-flex justify-content-around">
-            <ul class="nav flex-column">
-              <li class="nav-item p-1 bg--primary-text">Inicio</li>
-              <li class="nav-item p-1 bg--primary-text">Inscripciones</li>
-              <li class="nav-item p-1 bg--primary-text">Contacto</li>
-            </ul>
-            <ul class="nav flex-column">
-              <li class="nav-item p-1 bg--primary-text">Institución</li>
-              <li class="nav-item p-1 bg--primary-text">Fundación</li>
-            </ul>
-            <ul class="nav flex-column">
-              <li class="nav-item p-1">Testimonios</li>
-              <li class="nav-item p-1 bg--primary-text">Newsletter</li>
-            </ul>
-          </div>
-          <div class="col-md-3 col-sm-12">
-            <div class="d-inline">
-              <a class="p-2 bg--primary-text" href>
-                <font-awesome-icon :icon="['fab', 'instagram']" size="lg" />
-              </a>
-              <a class="p-2 bg--primary-text" href>
-                <font-awesome-icon :icon="['fab', 'twitter']" size="lg" />
-              </a>
-              <a class="p-2 bg--primary-text" href>
-                <font-awesome-icon :icon="['fab', 'facebook-f']" size="lg" />
-              </a>
-              <a class="p-2 bg--primary-text" href>
-                <font-awesome-icon :icon="['fas', 'globe']" size="lg" />
-              </a>
-            </div>
-            <div class="form-group mt-2">
-              <input type="text" class="form-control" placeholder="Ingresa tu email" />
-              <p class="p-1 bg--primary-text">
-                Permanece en contacto con nosotros para conocer
-                las últimas noticias!
-              </p>
-            </div>
-          </div>
-        </div>
-      </nav>
-      <div class="py-2 bg--dark-blue">
-        <div class="col-md-12 col-sm-12">
-          <p class="m-0 text-center text-white">Copyright &copy; Great Idea South 2020</p>
-        </div>
-      </div>
-    </footer>
-  </div>
 </template>
 
 <script>
+import Footer from "../components/Footer";
+
 export default {
-  props: {
-    userId: {
-      type: Number,
-      required: true
+    components: { Footer },
+    data() {
+        return {
+            logo_src: "images/logo-impulso.png"
+        };
     },
-    userName: {
-      type: String,
-      required: true
+    props: {
+        userId: {
+            type: Number,
+            required: true
+        },
+        userName: {
+            type: String,
+            required: true
+        }
+    },
+    methods: {
+        logout() {
+            axios.post("/logout").then(() => {
+                window.location = "/";
+            });
+        }
     }
-  },
-  data() {
-    return {
-      logo_src: "images/logo-impulso.png"
-    };
-  },
-  methods: {
-    logout() {
-      axios.post("/logout").then(() => {
-        window.location = "/";
-      });
-    }
-  }
 };
 </script>
+<style>
+.text--bg-primary {
+    color: #f5f5f5;
+}
+</style>

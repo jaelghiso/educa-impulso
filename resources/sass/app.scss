@@ -8,3 +8,48 @@
 @tailwind components;
 
 @tailwind utilities;
+
+@import "themes/light";
+@import "themes/dark";
+
+@import "components/button";
+@import "components/card";
+@import "components/card-news.scss";
+@import "components/dropdown";
+@import "components/jumbotron";
+
+body,
+button {
+    @apply .text-default;
+}
+
+.section {
+    @apply .px-8;
+}
+
+.bg-page {
+    background-color: theme("colors.page");
+}
+
+.bg-header {
+    background-color: $dark-blue;
+    color: $white;
+}
+
+.logo--setup {
+    height: 80px;
+    width: 60px;
+    padding: 10px;
+}
+.logo--setup-header {
+    height: 100px;
+    padding: 10px;
+}
+
+.navbar {
+    color: $white;
+    width: 100%;
+    height: auto;
+    padding: 20px;
+    background-color: $yellow;
+}

@@ -15,11 +15,11 @@
 
         <!-- Styles -->
     </head>
-    <body>
+    <body class="theme-light bg-page">
         <div id="app">
-            <welcome></welcome>
+            <welcome class="theme-light bg-page"></welcome>
         </div>
-        
-        
+
+
     </body>
 </html>

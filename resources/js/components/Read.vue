@@ -1,26 +1,34 @@
 <template>
-    <div id="posts" class="mt-4 mx-auto">
-        <p class="border p-3 my-4" v-for="post in posts" :key="post.id">
-            {{ post.title }}
-            <router-link :to="{ name: 'update', params: { postId: post.id } }">
-                <button
-                    class="p-1 mx-3 float-right btn btn-light"
-                    type="button"
+    <div id="posts" class="mt-4">
+        <div
+            class="flex flex-row justify-between border p-3 my-4"
+            v-for="post in posts"
+            :key="post.id"
+        >
+            <p class="flex justify-around mr-4">
+                {{ post.title }}
+            </p>
+            <div class="flex justify-around">
+                <router-link
+                    :to="{ name: 'update', params: { postId: post.id } }"
                 >
-                    Editar News
+                    <button class="p-1 mx-3 bg-grey-400" type="button">
+                        Editar News
+                    </button>
+                </router-link>
+                <button
+                    class="p-1 mx-3 bg-red-500"
+                    type="button"
+                    @click="deletePost(post.id)"
+                >
+                    Borrar News
                 </button>
-            </router-link>
+            </div>
+        </div>
+
+        <div class="">
             <button
-                class="p-1 mx-3 float-right btn btn-danger"
-                type="button"
-                @click="deletePost(post.id)"
-            >
-                Borrar News
-            </button>
-        </p>
-        <div>
-            <button
-                class="m-3 btn btn-primary"
+                class="m-3 button bg-grey-400"
                 type="button"
                 v-if="next"
                 @click="navigate(next)"
@@ -28,7 +36,7 @@
                 Siguiente
             </button>
             <button
-                class="m-3 btn btn-primary"
+                class="m-3 button bg-grey-400"
                 type="button"
                 v-if="prev"
                 @click="navigate(prev)"

@@ -20,9 +20,9 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
-<body>
+<body class="theme-light bg-page">
     <div id="app">
-        <Homepage
+        <Homepage class="theme-light bg-page"
             :user-name='@json(auth()->user()->name)'
             :user-id='@json(auth()->user()->id)'
         ></Homepage>

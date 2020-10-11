@@ -1,4 +1,10 @@
 module.exports = {
+    future: {
+        // removeDeprecatedGapUtilities: true,
+        // purgeLayersByDefault: true,
+    },
+    purge: [],
+    target: "relaxed",
     prefix: "",
     important: false,
     separator: ":",
@@ -11,6 +17,7 @@ module.exports = {
         },
         colors: {
             transparent: "transparent",
+            current: "currentColor",
 
             default: "var(--text-default-color)",
             accent: "var(--text-accent-color)",
@@ -22,6 +29,9 @@ module.exports = {
             card: "var(--card-background-color)",
             button: "var(--button-background-color)",
             header: "var(--header-background-color)",
+
+            black: "#000",
+            white: "#fff",
 
             gray: {
                 100: "#f7fafc",
@@ -44,6 +54,94 @@ module.exports = {
                 700: "#c53030",
                 800: "#9b2c2c",
                 900: "#742a2a"
+            },
+            orange: {
+                100: "#fffaf0",
+                200: "#feebc8",
+                300: "#fbd38d",
+                400: "#f6ad55",
+                500: "#ed8936",
+                600: "#dd6b20",
+                700: "#c05621",
+                800: "#9c4221",
+                900: "#7b341e"
+            },
+            yellow: {
+                100: "#fffff0",
+                200: "#fefcbf",
+                300: "#faf089",
+                400: "#f6e05e",
+                500: "#ecc94b",
+                600: "#d69e2e",
+                700: "#b7791f",
+                800: "#975a16",
+                900: "#744210"
+            },
+            green: {
+                100: "#f0fff4",
+                200: "#c6f6d5",
+                300: "#9ae6b4",
+                400: "#68d391",
+                500: "#48bb78",
+                600: "#38a169",
+                700: "#2f855a",
+                800: "#276749",
+                900: "#22543d"
+            },
+            teal: {
+                100: "#e6fffa",
+                200: "#b2f5ea",
+                300: "#81e6d9",
+                400: "#4fd1c5",
+                500: "#38b2ac",
+                600: "#319795",
+                700: "#2c7a7b",
+                800: "#285e61",
+                900: "#234e52"
+            },
+            blue: {
+                100: "#ebf8ff",
+                200: "#bee3f8",
+                300: "#90cdf4",
+                400: "#63b3ed",
+                500: "#4299e1",
+                600: "#3182ce",
+                700: "#2b6cb0",
+                800: "#2c5282",
+                900: "#2a4365"
+            },
+            indigo: {
+                100: "#ebf4ff",
+                200: "#c3dafe",
+                300: "#a3bffa",
+                400: "#7f9cf5",
+                500: "#667eea",
+                600: "#5a67d8",
+                700: "#4c51bf",
+                800: "#434190",
+                900: "#3c366b"
+            },
+            purple: {
+                100: "#faf5ff",
+                200: "#e9d8fd",
+                300: "#d6bcfa",
+                400: "#b794f4",
+                500: "#9f7aea",
+                600: "#805ad5",
+                700: "#6b46c1",
+                800: "#553c9a",
+                900: "#44337a"
+            },
+            pink: {
+                100: "#fff5f7",
+                200: "#fed7e2",
+                300: "#fbb6ce",
+                400: "#f687b3",
+                500: "#ed64a6",
+                600: "#d53f8c",
+                700: "#b83280",
+                800: "#97266d",
+                900: "#702459"
             }
         },
         spacing: {
@@ -68,6 +166,27 @@ module.exports = {
             "64": "16rem"
         },
         backgroundColor: theme => theme("colors"),
+        backgroundImage: {
+            none: "none",
+            "gradient-to-t":
+                "linear-gradient(to top, var(--gradient-color-stops))",
+            "gradient-to-tr":
+                "linear-gradient(to top right, var(--gradient-color-stops))",
+            "gradient-to-r":
+                "linear-gradient(to right, var(--gradient-color-stops))",
+            "gradient-to-br":
+                "linear-gradient(to bottom right, var(--gradient-color-stops))",
+            "gradient-to-b":
+                "linear-gradient(to bottom, var(--gradient-color-stops))",
+            "gradient-to-bl":
+                "linear-gradient(to bottom left, var(--gradient-color-stops))",
+            "gradient-to-l":
+                "linear-gradient(to left, var(--gradient-color-stops))",
+            "gradient-to-tl":
+                "linear-gradient(to top left, var(--gradient-color-stops))"
+        },
+        gradientColorStops: theme => theme("colors"),
+        backgroundOpacity: theme => theme("opacity"),
         backgroundPosition: {
             bottom: "bottom",
             center: "center",
@@ -88,6 +207,7 @@ module.exports = {
             ...theme("colors"),
             default: theme("colors.gray.300", "currentColor")
         }),
+        borderOpacity: theme => theme("opacity"),
         borderRadius: {
             none: "0",
             sm: "0.125rem",
@@ -129,6 +249,9 @@ module.exports = {
             move: "move",
             "not-allowed": "not-allowed"
         },
+        divideColor: theme => theme("borderColor"),
+        divideOpacity: theme => theme("borderOpacity"),
+        divideWidth: theme => theme("borderWidth"),
         fill: {
             current: "currentColor"
         },
@@ -310,6 +433,11 @@ module.exports = {
         },
         padding: theme => theme("spacing"),
         placeholderColor: theme => theme("colors"),
+        placeholderOpacity: theme => theme("opacity"),
+        space: (theme, { negative }) => ({
+            ...theme("spacing"),
+            ...negative(theme("spacing"))
+        }),
         stroke: {
             current: "currentColor"
         },
@@ -319,6 +447,7 @@ module.exports = {
             "2": "2"
         },
         textColor: theme => theme("colors"),
+        textOpacity: theme => theme("opacity"),
         width: theme => ({
             auto: "auto",
             ...theme("spacing"),
@@ -535,6 +664,44 @@ module.exports = {
             "500": "500ms",
             "700": "700ms",
             "1000": "1000ms"
+        },
+        transitionDelay: {
+            "75": "75ms",
+            "100": "100ms",
+            "150": "150ms",
+            "200": "200ms",
+            "300": "300ms",
+            "500": "500ms",
+            "700": "700ms",
+            "1000": "1000ms"
+        },
+        animation: {
+            none: "none",
+            spin: "spin 1s linear infinite",
+            ping: "ping 1s cubic-bezier(0, 0, 0.2, 1) infinite",
+            pulse: "pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+            bounce: "bounce 1s infinite"
+        },
+        keyframes: {
+            spin: {
+                to: { transform: "rotate(360deg)" }
+            },
+            ping: {
+                "75%, 100%": { transform: "scale(2)", opacity: "0" }
+            },
+            pulse: {
+                "50%": { opacity: ".5" }
+            },
+            bounce: {
+                "0%, 100%": {
+                    transform: "translateY(-25%)",
+                    animationTimingFunction: "cubic-bezier(0.8,0,1,1)"
+                },
+                "50%": {
+                    transform: "none",
+                    animationTimingFunction: "cubic-bezier(0,0,0.2,1)"
+                }
+            }
         }
     },
     variants: {
@@ -544,19 +711,29 @@ module.exports = {
         alignSelf: ["responsive"],
         appearance: ["responsive"],
         backgroundAttachment: ["responsive"],
+        backgroundClip: ["responsive"],
         backgroundColor: ["responsive", "hover", "focus"],
+        backgroundImage: ["responsive"],
+        gradientColorStops: ["responsive", "hover", "focus"],
+        backgroundOpacity: ["responsive", "hover", "focus"],
         backgroundPosition: ["responsive"],
         backgroundRepeat: ["responsive"],
         backgroundSize: ["responsive"],
         borderCollapse: ["responsive"],
         borderColor: ["responsive", "hover", "focus"],
+        borderOpacity: ["responsive", "hover", "focus"],
         borderRadius: ["responsive"],
         borderStyle: ["responsive"],
         borderWidth: ["responsive"],
         boxShadow: ["responsive", "hover", "focus"],
         boxSizing: ["responsive"],
+        container: ["responsive"],
         cursor: ["responsive"],
         display: ["responsive"],
+        divideColor: ["responsive"],
+        divideOpacity: ["responsive"],
+        divideStyle: ["responsive"],
+        divideWidth: ["responsive"],
         fill: ["responsive"],
         flex: ["responsive"],
         flexDirection: ["responsive"],
@@ -568,11 +745,14 @@ module.exports = {
         fontFamily: ["responsive"],
         fontSize: ["responsive"],
         fontSmoothing: ["responsive"],
+        fontVariantNumeric: ["responsive"],
         fontStyle: ["responsive"],
         fontWeight: ["responsive", "hover", "focus"],
         height: ["responsive"],
         inset: ["responsive"],
         justifyContent: ["responsive"],
+        justifyItems: ["responsive"],
+        justifySelf: ["responsive"],
         letterSpacing: ["responsive"],
         lineHeight: ["responsive"],
         listStylePosition: ["responsive"],
@@ -588,16 +768,23 @@ module.exports = {
         order: ["responsive"],
         outline: ["responsive", "focus"],
         overflow: ["responsive"],
+        overscrollBehavior: ["responsive"],
         padding: ["responsive"],
+        placeContent: ["responsive"],
+        placeItems: ["responsive"],
+        placeSelf: ["responsive"],
         placeholderColor: ["responsive", "focus"],
+        placeholderOpacity: ["responsive", "focus"],
         pointerEvents: ["responsive"],
         position: ["responsive"],
         resize: ["responsive"],
+        space: ["responsive"],
         stroke: ["responsive"],
         strokeWidth: ["responsive"],
         tableLayout: ["responsive"],
         textAlign: ["responsive"],
         textColor: ["responsive", "hover", "focus"],
+        textOpacity: ["responsive", "hover", "focus"],
         textDecoration: ["responsive", "hover", "focus"],
         textTransform: ["responsive"],
         userSelect: ["responsive"],
@@ -625,7 +812,9 @@ module.exports = {
         skew: ["responsive", "hover", "focus"],
         transitionProperty: ["responsive"],
         transitionTimingFunction: ["responsive"],
-        transitionDuration: ["responsive"]
+        transitionDuration: ["responsive"],
+        transitionDelay: ["responsive"],
+        animation: ["responsive"]
     },
     corePlugins: {},
     plugins: []
