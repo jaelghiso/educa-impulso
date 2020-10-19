@@ -37,25 +37,33 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function posts(){
+    public function posts()
+    {
         return $this->hasMany(Post::class);
     }
 
-    public function comments(){
+    public function courses()
+    {
+        return $this->hasMany(Course::class);
+    }
+
+    public function comments()
+    {
         return $this->hasMany(Comment::class);
     }
 
-    public function roles(){
+    public function roles()
+    {
         return $this->belongsToMany(Role::class);
     }
 
-    public function checkRoles($roles) 
+    public function checkRoles($roles)
     {
-        if ( ! is_array($roles)) {
-            $roles = [$roles];    
+        if (!is_array($roles)) {
+            $roles = [$roles];
         }
 
-        if ( ! $this->hasAnyRole($roles)) {
+        if (!$this->hasAnyRole($roles)) {
             auth()->logout();
             abort(404);
         }
@@ -70,5 +78,4 @@ class User extends Authenticatable
     {
         return (bool) $this->roles()->where('name', $role)->first();
     }
-    
 }

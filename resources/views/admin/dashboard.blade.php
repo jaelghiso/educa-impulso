@@ -25,7 +25,7 @@
         <Dashboard class="theme-light bg-page"
             :user-name='@json(auth()->user()->name)'
             :user-id='@json(auth()->user()->id)'
-        ></Dashboard>
+        ></Dashboard >
     </div>
 </body>
 </html>

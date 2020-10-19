@@ -14,7 +14,12 @@
                         <router-link
                             :to="{ name: 'read' }"
                             class="text-sm text-white font-bold m-2"
-                            >Admin</router-link
+                            >Admin News</router-link
+                        >
+                        <router-link
+                            :to="{ name: 'readCourse' }"
+                            class="text-sm text-white font-bold m-2"
+                            >Admin Cursos</router-link
                         >
                         <router-link
                             :to="{ name: 'home' }"
@@ -67,7 +72,36 @@
                         <router-view :userName="userName"></router-view>
                     </div>
                 </div>
+                <div class="flex flex-row">
+                    <div class="flex justify-start items-start py-3 my-3 mr-4">
+                        <div class="jumbotron mt-4">
+                            <h1 class="bg--primary-text py-2">
+                                Bienvenido a<br />
+                                <span
+                                    class="text-yellow-600 text-semibold text-3xl"
+                                    >Admin Cursos!</span
+                                >
+                            </h1>
+                            <router-link
+                                :to="{ name: 'readCourse' }"
+                                class="button my-3"
+                                >Administrar &rarr;</router-link
+                            >
+                            <hr class="py-3 mt-5" />
+                            <p class="text-sm my-2">
+                                Presiona aquí debajo para crear un nuevo
+                                Curso:
+                            </p>
+                            <router-link
+                                :to="{ name: 'createCourse', params: { userId } }"
+                                class="button bg--primary-text"
+                                >New Course</router-link
+                            >
+                        </div>
+                    </div>
+                </div>
             </div>
+
         </div>
         <Footer />
     </div>
