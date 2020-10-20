@@ -8,13 +8,13 @@
                 ]"
             >
                 <span v-if="successful" class="text-green-600"
-                    >Noticia publicada!</span
+                    >Temario publicado!</span
                 >
             </div>
             <div class="field mb-6">
                 <div class="control">
                     <label for="title" class="text-default py-2"
-                        >Título de la Noticia</label
+                        >Título de la Clase o Módulo</label
                     >
                     <input
                         type="title"
@@ -34,69 +34,24 @@
             </div>
             <div class="field mb-6">
                 <div class="control">
-                    <label for="subtitle" class="text-default py-2"
-                        >Subtítulo</label
-                    >
-                    <input
-                        type="subtitle"
-                        ref="subtitle"
-                        class="bg-transparent border border-muted-light rounded p-2 text-sm text-muted w-full"
-                        id="subtitle"
-                        placeholder="Ingresa el subtítulo"
-                        required
-                    />
-                    <p
-                        v-if="errors.subtitle"
-                        class="bg-red-300 text-red-600 rounded p-2 m-1"
-                    >
-                        {{ errors.subtitle[0] }}
-                    </p>
-                </div>
-            </div>
-            <div class="field mb-6">
-                <div class="control">
-                    <label for="body" class="text-default py-2"
-                        >Contenido</label
+                    <label for="description" class="text-default py-2"
+                        >Temas de la Clase o Módulo</label
                     >
                     <markdown-editor
                         class="bg-transparent border border-muted-light rounded p-2 text-sm text-default w-full"
-                        ref="body"
-                        id="body"
+                        ref="description"
+                        id="description"
                         v-model="value"
-                        placeholder="Ingresa el texto del artículo aquí"
+                        placeholder="Ingresa la descripción aquí"
                         rows="8"
                         required
                         toolbar="bold italic heading | image link | numlist bullist code quote | preview fullscreen"
                     ></markdown-editor>
                     <p
-                        v-if="errors.body"
+                        v-if="errors.description"
                         class="bg-red-300 text-red-600 rounded p-2 m-1"
                     >
-                        {{ errors.body[0] }}
-                    </p>
-                </div>
-            </div>
-            <div class="field mb-6">
-                <div class="control">
-                    <label for="image" class="text-default py-2"
-                        >Imagen de Portada</label
-                    >
-                    <div class="border mb-3">
-                        <input
-                            type="file"
-                            ref="image"
-                            name="image"
-                            class="bg-transparent border border-muted-light rounded p-2 text-sm text-muted"
-                            id="image"
-                            required
-                        />
-                        <label class="px-3">Seleccionar archivo...</label>
-                    </div>
-                    <p
-                        v-if="errors.image"
-                        class="bg-red-300 text-red-600 rounded p-2 m-1"
-                    >
-                        {{ errors.image[0] }}
+                        {{ errors.description[0] }}
                     </p>
                 </div>
             </div>
@@ -106,7 +61,7 @@
                     @click.prevent="create"
                     class="button block"
                 >
-                    Publicar &rarr;
+                    Enviar &rarr;
                 </button>
             </div>
         </form>
@@ -117,6 +72,10 @@
 export default {
     props: {
         userId: {
+            type: Number,
+            required: true
+        },
+        courseId: {
             type: Number,
             required: true
         }
@@ -133,13 +92,12 @@ export default {
         create() {
             const formData = new FormData();
             formData.append("title", this.$refs.title.value);
-            formData.append("subtitle", this.$refs.subtitle.value);
-            formData.append("body", this.$refs.body.value);
+            formData.append("description", this.$refs.description.value);
             formData.append("user_id", this.userId);
-            formData.append("image", this.$refs.image.files[0]);
+            formData.append("course_id", this.courseId);
 
             axios
-                .post("/api/posts", formData)
+                .post("/api/summaries", formData)
                 .then(response => {
                     this.successful = true;
                     this.error = false;
@@ -156,8 +114,7 @@ export default {
                 });
 
             this.$refs.title.value = "";
-            this.$refs.subtitle.value = "";
-            this.$refs.body.value = "";
+            this.$refs.description.value = "";
         }
     }
 };

@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Course extends Model
+class Summary extends Model
 {
     protected $fillable = ['user_id', 'title', 'description'];
 
@@ -13,8 +13,9 @@ class Course extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function summary()
+    public function course()
     {
-        return $this->hasOne(Summary::class);
+
+        return $this->belongsTo(Course::class);
     }
 }

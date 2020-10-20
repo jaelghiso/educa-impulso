@@ -1,16 +1,16 @@
 <template>
-    <div id="courses" class="mt-4">
+    <div id="summaries" class="mt-4">
         <div
             class="flex flex-row justify-between border p-3 my-4"
-            v-for="course in courses"
-            :key="course.id"
+            v-for="summary in summaries"
+            :key="summary.id"
         >
             <p class="flex justify-around mr-4">
-                {{ course.title }}
+                {{ summary.title }}
             </p>
             <div class="flex justify-around">
                 <router-link
-                    :to="{ name: 'updateCourse', params: { courseId: course.id } }"
+                    :to="{ name: 'updateSummary', params: { summaryId: summary.id } }"
                 >
                     <button class="p-1 mx-3 bg-grey-400" type="button">
                         Editar Curso
@@ -19,7 +19,7 @@
                 <button
                     class="p-1 mx-3 bg-red-500"
                     type="button"
-                    @click="deleteCourse(course.id)"
+                    @click="deleteSummary(summary.id)"
                 >
                     Borrar Curso
                 </button>
@@ -50,26 +50,26 @@
 <script>
 export default {
     mounted() {
-        this.getCourses();
+        this.getSummaries();
     },
     data() {
         return {
-            courses: {},
+            summaries: {},
             next: null,
             prev: null
         };
     },
     methods: {
-        getCourses(address) {
-            axios.get(address ? address : "/api/courses").then(response => {
-                this.courses = response.data.data;
+        getSummaries(address) {
+            axios.get(address ? address : "/api/summaries").then(response => {
+                this.summaries = response.data.data;
                 this.prev = response.data.links.prev;
                 this.next = response.data.links.next;
             });
         },
-        deleteCourse(id) {
-            axios.delete("/api/courses/" + id).then(
-                response => this.getCourses(),
+        deleteSummary(id) {
+            axios.delete("/api/summaries/" + id).then(
+                response => this.getSummaries(),
                 swal({
                     title: "Borrada!",
                     text: "Este curso ha sido eliminado",
@@ -80,7 +80,7 @@ export default {
             );
         },
         navigate(address) {
-            this.getCourses(address);
+            this.getSummaries(address);
         }
     }
 };

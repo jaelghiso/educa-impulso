@@ -44,13 +44,13 @@
             </div>
             <div class="field mb-6">
                 <div class="control">
-                    <label for="body" class="text-default py-2"
+                    <label for="description" class="text-default py-2"
                         >Breve descripción del Curso</label
                     >
                     <markdown-editor
                         class="bg-transparent border border-muted-light rounded p-2 text-sm text-default w-full"
-                        ref="body"
-                        id="body"
+                        ref="description"
+                        id="description"
                         rows="15"
                         required
                         toolbar="bold italic heading | image link | numlist bullist code quote | preview fullscreen"
@@ -85,7 +85,7 @@ export default {
         return {
             error: false,
             successfull: false,
-            errors: []
+            errors: [],
         };
     },
     methods: {

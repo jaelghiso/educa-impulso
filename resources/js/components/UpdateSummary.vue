@@ -1,20 +1,36 @@
 <template>
-    <div class="mb-4">
-        <form action class="md:mx-auto card py-12 px-16 rounded shadow">
-            <div
-                :class="[
-                    'control m-1 p-3',
-                    successful ? 'bg-green-200 rounded' : ''
-                ]"
-            >
-                <span v-if="successful" class="text-green-600"
-                    >Curso publicado!</span
+    <div class="mb-4 md:w-8/12 md:mx-auto">
+        <form action class="card py-12 px-16 rounded shadow">
+            <div class="field">
+                <div
+                    :class="[
+                        'control m-1 p-3',
+                        successfull ? 'bg-green-200 rounded' : ''
+                    ]"
                 >
+                    <span v-if="successfull" class="text-green-600"
+                        >Temario actualizado!</span
+                    >
+                </div>
+                <div
+                    :class="[
+                        'control m-1 p-3',
+                        error ? 'bg-red-200 rounded' : ''
+                    ]"
+                >
+                    <span v-if="errors.title" class="text-red-600">{{
+                        errors.title[0]
+                    }}</span>
+                    <span v-if="errors.description" class="text-red-600">{{
+                        errors.description[0]
+                    }}</span>
+                </div>
             </div>
+
             <div class="field mb-6">
                 <div class="control">
                     <label for="title" class="text-default py-2"
-                        >Título del Curso</label
+                        >Título de la Clase o Módulo</label
                     >
                     <input
                         type="title"
@@ -24,44 +40,30 @@
                         placeholder="Ingresa el título"
                         required
                     />
-                    <p
-                        v-if="errors.title"
-                        class="bg-red-300 text-red-600 rounded p-2 m-1"
-                    >
-                        {{ errors.title[0] }}
-                    </p>
                 </div>
             </div>
             <div class="field mb-6">
                 <div class="control">
                     <label for="description" class="text-default py-2"
-                        >Breve descripción del Curso</label
+                        >Temas de la Clase o Módulo</label
                     >
                     <markdown-editor
                         class="bg-transparent border border-muted-light rounded p-2 text-sm text-default w-full"
                         ref="description"
                         id="description"
-                        v-model="value"
-                        placeholder="Ingresa la descripción aquí"
-                        rows="8"
+                        rows="15"
                         required
                         toolbar="bold italic heading | image link | numlist bullist code quote | preview fullscreen"
                     ></markdown-editor>
-                    <p
-                        v-if="errors.description"
-                        class="bg-red-300 text-red-600 rounded p-2 m-1"
-                    >
-                        {{ errors.description[0] }}
-                    </p>
                 </div>
             </div>
-            <div class="fied mb-6">
+            <div class="field mb-6">
                 <button
-                    type="submit"
-                    @click.prevent="create"
                     class="button block"
+                    type="submit"
+                    @click.prevent="update"
                 >
-                    Enviar &rarr;
+                    Actualizar &rarr;
                 </button>
             </div>
         </form>
@@ -70,8 +72,11 @@
 
 <script>
 export default {
+    mounted() {
+        this.getSummary();
+    },
     props: {
-        userId: {
+        summaryId: {
             type: Number,
             required: true
         }
@@ -79,22 +84,19 @@ export default {
     data() {
         return {
             error: false,
-            successful: false,
+            successfull: false,
             errors: [],
-            value: '',
         };
     },
     methods: {
-        create() {
-            const formData = new FormData();
-            formData.append("title", this.$refs.title.value);
-            formData.append("description", this.$refs.description.value);
-            formData.append("user_id", this.userId);
+        update() {
+            let title = this.$refs.title.value;
+            let body = this.$refs.description.value;
 
             axios
-                .post("/api/courses", formData)
+                .put("/api/summaries/" + this.summaryId, { title, description })
                 .then(response => {
-                    this.successful = true;
+                    this.successfull = true;
                     this.error = false;
                     this.errors = [];
                 })
@@ -102,14 +104,17 @@ export default {
                     if (!_.isEmpty(error.response)) {
                         if ((error.response.status = 422)) {
                             this.errors = error.response.data.errors;
-                            this.successful = false;
+                            this.successfull = false;
                             this.error = true;
                         }
                     }
                 });
-
-            this.$refs.title.value = "";
-            this.$refs.description.value = "";
+        },
+        getSummary() {
+            axios.get("/api/summaries/" + this.summaryId).then(response => {
+                this.$refs.title.value = response.data.data.title;
+                this.$refs.description.value = response.data.data.description;
+            });
         }
     }
 };

@@ -22,6 +22,11 @@
                             >Admin Cursos</router-link
                         >
                         <router-link
+                            :to="{ name: 'readSummary' }"
+                            class="text-sm text-white font-bold m-2"
+                            >Admin Temarios</router-link
+                        >
+                        <router-link
                             :to="{ name: 'home' }"
                             class="text-sm text-white font-bold m-2"
                             >Home</router-link
@@ -88,14 +93,19 @@
                                 >Administrar &rarr;</router-link
                             >
                             <hr class="py-3 mt-5" />
-                            <p class="text-sm my-2">
-                                Presiona aquí debajo para crear un nuevo
-                                Curso:
+                            <p class="text-sm mb-4">
+                                Presiona aquí debajo para crear<br />
+                                un nuevo Curso o un nuevo Temario:
                             </p>
                             <router-link
                                 :to="{ name: 'createCourse', params: { userId } }"
                                 class="button bg--primary-text"
                                 >New Course</router-link
+                            >
+                            <router-link
+                                :to="{ name: 'createSummary', params: { userId } }"
+                                class="button bg--primary-text"
+                                >New Summary</router-link
                             >
                         </div>
                     </div>
@@ -124,6 +134,10 @@ export default {
         },
         userName: {
             type: String,
+            required: true
+        },
+        courseId:{
+            type: Number,
             required: true
         }
     },

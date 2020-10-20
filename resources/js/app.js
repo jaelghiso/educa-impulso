@@ -53,6 +53,10 @@ import ReadCourse from "./components/ReadCourse";
 import CreateCourse from "./components/CreateCourse";
 import UpdateCourse from "./components/UpdateCourse";
 
+import ReadSummary from "./components/ReadSummary";
+import CreateSummary from "./components/CreateSummary";
+import UpdateSummary from "./components/UpdateSummary";
+
 Vue.component("font-awesome-icon", FontAwesomeIcon);
 
 Vue.use(VueRouter);
@@ -123,6 +127,24 @@ const router = new VueRouter({
             path: "/admin/updateCourse",
             name: "updateCourse",
             component: UpdateCourse,
+            props: true
+        },
+        {
+            path: "/admin/dashboard",
+            name: "readSummary",
+            component: ReadSummary,
+            props: true
+        },
+        {
+            path: "/admin/createSummary",
+            name: "createSummary",
+            component: CreateSummary,
+            props: true
+        },
+        {
+            path: "/admin/updateSummary",
+            name: "updateSummary",
+            component: UpdateSummary,
             props: true
         }
     ]
