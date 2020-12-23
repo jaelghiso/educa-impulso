@@ -2,12 +2,7 @@ require("./bootstrap");
 
 import Vue from "vue";
 import VueRouter from "vue-router";
-import "v-markdown-editor/dist/v-markdown-editor.css";
 import swal from "sweetalert";
-
-import Editor from "v-markdown-editor";
-
-Vue.use(Editor);
 
 import { library } from "@fortawesome/fontawesome-svg-core";
 import {
@@ -30,10 +25,16 @@ library.add(
     faCommentDots,
     faHeart
 );
+Vue.component("font-awesome-icon", FontAwesomeIcon);
 
 import DateFilter from "./filters/date";
 
 Vue.filter("date", DateFilter);
+
+import VueSimplemde from "vue-simplemde";
+import "simplemde/dist/simplemde.min.css";
+
+Vue.component("vue-simplemde", VueSimplemde);
 
 import Dashboard from "./pages/Dashboard";
 import Welcome from "./pages/Welcome";
@@ -57,7 +58,7 @@ import ReadSummary from "./components/ReadSummary";
 import CreateSummary from "./components/CreateSummary";
 import UpdateSummary from "./components/UpdateSummary";
 
-Vue.component("font-awesome-icon", FontAwesomeIcon);
+import CreateEvent from "./components/CreateEvent";
 
 Vue.use(VueRouter);
 
@@ -113,38 +114,44 @@ const router = new VueRouter({
         },
         {
             path: "/admin/dashboard",
-            name: "readCourse",
+            name: "read-course",
             component: ReadCourse,
             props: true
         },
         {
             path: "/admin/createCourse",
-            name: "createCourse",
+            name: "create-course",
             component: CreateCourse,
             props: true
         },
         {
             path: "/admin/updateCourse",
-            name: "updateCourse",
+            name: "update-course",
             component: UpdateCourse,
             props: true
         },
         {
             path: "/admin/dashboard",
-            name: "readSummary",
+            name: "read-summary",
             component: ReadSummary,
             props: true
         },
         {
             path: "/admin/createSummary",
-            name: "createSummary",
+            name: "create-summary",
             component: CreateSummary,
             props: true
         },
         {
             path: "/admin/updateSummary",
-            name: "updateSummary",
+            name: "update-summary",
             component: UpdateSummary,
+            props: true
+        },
+        {
+            path: "/admin/createEvent",
+            name: "create-event",
+            component: CreateEvent,
             props: true
         }
     ]

@@ -47,7 +47,18 @@ class User extends Authenticatable
         return $this->hasMany(Course::class);
     }
 
+    public function classrooms()
+    {
+        return $this->hasMany(Classroom::class);
+    }
+
     public function summaries()
+    {
+
+        return $this->hasMany(Summary::class);
+    }
+
+    public function events()
     {
 
         return $this->hasMany(Summary::class);

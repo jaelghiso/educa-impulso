@@ -36,7 +36,7 @@ class SummaryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Course $course)
     {
         $this->validate($request, [
             'title' => 'required',
@@ -46,7 +46,7 @@ class SummaryController extends Controller
         $summary = new Summary;
 
         $summary->user_id = $request->user_id;
-        $summary->course_id = $request->course_id;
+        $summary->course_id = $course->id;
         $summary->title = $request->title;
         $summary->description = $request->description;
         $summary->save();

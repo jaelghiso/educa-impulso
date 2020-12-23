@@ -16,6 +16,7 @@ class SummaryResource extends JsonResource
     {
         return [
             'id' => $this->id,
+            'course_id' => $this->course_id,
             'title' => $this->title,
             'description' => $this->description,
             'created_at' => (string) $this->created_at,

@@ -1,5 +1,5 @@
 <template>
-    <div class="jumbotron">
+    <div class="">
         <div class="col-md-8 offset-md-4 text-center">
             <h1 class="text-2xl font-normal mb-10 text-muted text-center">
                 EducaImpulso
@@ -109,9 +109,8 @@ export default {
                     swal({
                         title: "Has iniciado sesión",
                         text: this.user,
-                        icon: "success",
-                        closeOnClickOutside: false,
-                        closeOnEsc: false
+                        closeOnClickOutside: true,
+                        closeOnEsc: true
                     }).then(selected => {
                         if (selected) {
                             window.location = "/";

@@ -10,7 +10,7 @@
             </p>
             <div class="flex justify-around">
                 <router-link
-                    :to="{ name: 'updateCourse', params: { courseId: course.id } }"
+                    :to="{ name: 'update-course', params: { courseId: course.id } }"
                 >
                     <button class="p-1 mx-3 bg-grey-400" type="button">
                         Editar Curso

@@ -1,4 +1,4 @@
 .card {
-    background-color: $white;
+    background-color: theme("colors.card");
     @apply .p-5 .rounded-lg .shadow;
 }

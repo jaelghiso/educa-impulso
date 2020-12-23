@@ -65,14 +65,14 @@
                     <label for="body" class="text-default py-2"
                         >Contenido</label
                     >
-                    <markdown-editor
+                    <textarea
                         class="bg-transparent border border-muted-light rounded p-2 text-sm text-default w-full"
                         ref="body"
                         id="body"
                         rows="15"
+                        col="10"
                         required
-                        toolbar="bold italic heading | image link | numlist bullist code quote | preview fullscreen"
-                    ></markdown-editor>
+                    />
                 </div>
             </div>
             <div class="field mb-6">
@@ -128,6 +128,9 @@ export default {
                         }
                     }
                 });
+            this.$refs.title.value = "";
+            this.$refs.title.value = "";
+            this.$refs.description.value = "";
         },
         getPost() {
             axios.get("/api/posts/" + this.postId).then(response => {

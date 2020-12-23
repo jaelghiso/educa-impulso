@@ -102,7 +102,7 @@
 export default {
     data() {
         return {
-            logo_src: "images/logo-impulso.png"
+            logo_src: "./images/logo-impulso.png"
         };
     }
 };

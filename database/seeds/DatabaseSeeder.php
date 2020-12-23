@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\WwbatArea;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -17,6 +18,10 @@ class DatabaseSeeder extends Seeder
             PostTableSeeder::class,
             CourseTableSeeder::class,
             SummaryTableSeeder::class,
+            EventTableSeeder::class,
+            WwbatAreasTableSeeder::class,
+            BigWordsAreasTableSeeder::class,
+            ScheduleAreasTableSeeder::class,
         ]);
     }
 }

@@ -124,9 +124,8 @@ export default {
                     swal({
                         title: "Te has registrado!",
                         text: this.user,
-                        icon: "success",
-                        closeOnClickOutside: false,
-                        closeOnEsc: false
+                        closeOnClickOutside: true,
+                        closeOnEsc: true
                     }).then(selected => {
                         if (selected) {
                             window.location = "/";

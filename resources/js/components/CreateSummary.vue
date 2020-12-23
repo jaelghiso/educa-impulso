@@ -37,16 +37,16 @@
                     <label for="description" class="text-default py-2"
                         >Temas de la Clase o Módulo</label
                     >
-                    <markdown-editor
+                    <vue-simplemde
                         class="bg-transparent border border-muted-light rounded p-2 text-sm text-default w-full"
                         ref="description"
                         id="description"
                         v-model="value"
                         placeholder="Ingresa la descripción aquí"
-                        rows="8"
+                        rows="15"
+                        cols="10"
                         required
-                        toolbar="bold italic heading | image link | numlist bullist code quote | preview fullscreen"
-                    ></markdown-editor>
+                    />
                     <p
                         v-if="errors.description"
                         class="bg-red-300 text-red-600 rounded p-2 m-1"

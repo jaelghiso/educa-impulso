@@ -17,12 +17,12 @@
                             >Admin News</router-link
                         >
                         <router-link
-                            :to="{ name: 'readCourse' }"
+                            :to="{ name: 'read-course' }"
                             class="text-sm text-white font-bold m-2"
                             >Admin Cursos</router-link
                         >
                         <router-link
-                            :to="{ name: 'readSummary' }"
+                            :to="{ name: 'read-summary' }"
                             class="text-sm text-white font-bold m-2"
                             >Admin Temarios</router-link
                         >
@@ -88,7 +88,7 @@
                                 >
                             </h1>
                             <router-link
-                                :to="{ name: 'readCourse' }"
+                                :to="{ name: 'read-course' }"
                                 class="button my-3"
                                 >Administrar &rarr;</router-link
                             >
@@ -98,14 +98,42 @@
                                 un nuevo Curso o un nuevo Temario:
                             </p>
                             <router-link
-                                :to="{ name: 'createCourse', params: { userId } }"
+                                :to="{ name: 'create-course', params: { userId } }"
                                 class="button bg--primary-text"
                                 >New Course</router-link
                             >
                             <router-link
-                                :to="{ name: 'createSummary', params: { userId } }"
+                                :to="{ name: 'create-summary', params: { userId } }"
                                 class="button bg--primary-text"
                                 >New Summary</router-link
+                            >
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-row">
+                    <div class="flex justify-start items-start py-3 my-3 mr-4">
+                        <div class="jumbotron mt-4">
+                            <h1 class="bg--primary-text py-2">
+                                Bienvenido a<br />
+                                <span
+                                    class="text-yellow-600 text-semibold text-3xl"
+                                    >Admin Eventos!</span
+                                >
+                            </h1>
+                            <router-link
+                                :to="{ name: 'read-event' }"
+                                class="button my-3"
+                                >Administrar &rarr;</router-link
+                            >
+                            <hr class="py-3 mt-5" />
+                            <p class="text-sm mb-4">
+                                Presiona aquí debajo para crear<br />
+                                un nuevo Evento:
+                            </p>
+                            <router-link
+                                :to="{ name: 'create-event', params: { userId } }"
+                                class="button bg--primary-text"
+                                >New Event</router-link
                             >
                         </div>
                     </div>
@@ -136,10 +164,6 @@ export default {
             type: String,
             required: true
         },
-        courseId:{
-            type: Number,
-            required: true
-        }
     },
     methods: {
         logout() {

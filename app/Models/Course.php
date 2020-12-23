@@ -17,4 +17,14 @@ class Course extends Model
     {
         return $this->hasOne(Summary::class);
     }
+
+    public function event()
+    {
+        return $this->hasMany(Event::class);
+    }
+
+    public function classrooms()
+    {
+        return $this->hasMany(Classroom::class);
+    }
 }

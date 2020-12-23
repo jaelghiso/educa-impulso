@@ -47,14 +47,14 @@
                     <label for="description" class="text-default py-2"
                         >Temas de la Clase o Módulo</label
                     >
-                    <markdown-editor
+                    <textarea
                         class="bg-transparent border border-muted-light rounded p-2 text-sm text-default w-full"
                         ref="description"
                         id="description"
                         rows="15"
+                        col="10"
                         required
-                        toolbar="bold italic heading | image link | numlist bullist code quote | preview fullscreen"
-                    ></markdown-editor>
+                    />
                 </div>
             </div>
             <div class="field mb-6">
@@ -109,6 +109,8 @@ export default {
                         }
                     }
                 });
+            this.$refs.title.value = "";
+            this.$refs.description.value = "";
         },
         getSummary() {
             axios.get("/api/summaries/" + this.summaryId).then(response => {

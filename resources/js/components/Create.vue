@@ -58,16 +58,16 @@
                     <label for="body" class="text-default py-2"
                         >Contenido</label
                     >
-                    <markdown-editor
+                    <vue-simplemde
                         class="bg-transparent border border-muted-light rounded p-2 text-sm text-default w-full"
                         ref="body"
                         id="body"
                         v-model="value"
+                        rows="15"
+                        col="10"
                         placeholder="Ingresa el texto del artículo aquí"
-                        rows="8"
                         required
-                        toolbar="bold italic heading | image link | numlist bullist code quote | preview fullscreen"
-                    ></markdown-editor>
+                    />
                     <p
                         v-if="errors.body"
                         class="bg-red-300 text-red-600 rounded p-2 m-1"
@@ -127,6 +127,9 @@ export default {
             successful: false,
             errors: [],
             value: '',
+            options: {
+                className: "button text-white text-sm"
+            }
         };
     },
     methods: {

@@ -13,7 +13,7 @@
                     :to="{ name: 'updateSummary', params: { summaryId: summary.id } }"
                 >
                     <button class="p-1 mx-3 bg-grey-400" type="button">
-                        Editar Curso
+                        Editar Temario
                     </button>
                 </router-link>
                 <button
@@ -21,7 +21,7 @@
                     type="button"
                     @click="deleteSummary(summary.id)"
                 >
-                    Borrar Curso
+                    Borrar Temario
                 </button>
             </div>
         </div>
@@ -72,7 +72,7 @@ export default {
                 response => this.getSummaries(),
                 swal({
                     title: "Borrada!",
-                    text: "Este curso ha sido eliminado",
+                    text: "Este temario ha sido eliminado",
                     icon: "success",
                     closeOnClickOutside: false,
                     closeOnEsc: false
