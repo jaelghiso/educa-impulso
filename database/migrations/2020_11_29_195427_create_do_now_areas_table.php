@@ -18,7 +18,7 @@ class CreateDoNowAreasTable extends Migration
             $table->integer('user_id')->unsigned();
             $table->unsignedBigInteger('class_id');
             $table->text('description');
-            $table->text('url-do-now');
+            $table->text('urlDoNow');
             $table->timestamps();
         });
     }

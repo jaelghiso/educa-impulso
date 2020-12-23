@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\WwbatArea;
 use App\Models\Classroom;
 use Illuminate\Http\Request;
-use App\Http\Resources\WWbatAreaResource;
+use App\Http\Resources\WwbatAreaResource;
 
 class WwbatAreaController extends Controller
 {

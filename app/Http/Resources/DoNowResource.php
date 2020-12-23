@@ -14,6 +14,13 @@ class DoNowResource extends JsonResource
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        return [
+            'id' => $this->id,
+            'class_id' => $this->class_id,
+            'description' => $this->description,
+            'urlDoNow' => $this->urlDoNow,
+            'created_at' => (string) $this->created_at,
+            'updated_at' => (string) $this->update_at,
+        ];
     }
 }

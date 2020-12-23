@@ -22,10 +22,10 @@
 </head>
 <body class="theme-light bg-page">
     <div id="app">
-        <Dashboard class="theme-light bg-page"
+        <Teacher-Dashboard class="theme-light bg-page"
             :user-name='@json(auth()->user()->name)'
             :user-id='@json(auth()->user()->id)'
-        ></Dashboard >
+        ></Teacher-Dashboard>
     </div>
 </body>
 </html>

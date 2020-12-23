@@ -95,8 +95,8 @@ class EventController extends Controller
     public function update(Request $request, Event $event)
     {
         $this->validate($request, [
-            'event_date' => 'required',
-            'event_time' => 'required',
+            'event_date' => 'required|dateformat:Y-m-d',
+            'event_time' => 'required|date_format:H:m',
             'title' => 'required',
             'description' => 'required',
             'priority' => 'required',

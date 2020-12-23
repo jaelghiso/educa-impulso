@@ -26,3 +26,5 @@ Route::apiResource('events', 'EventController');
 Route::apiResource('wwbat-areas', 'WwbatAreaController');
 Route::apiResource('bigwords-areas', 'BigWordsAreaController');
 Route::apiResource('schedule-areas', 'ScheduleAreaController');
+Route::apiResource('doNow-areas', 'DoNowController');
+Route::apiResource('exitTicket-areas', 'ExitTicketController');

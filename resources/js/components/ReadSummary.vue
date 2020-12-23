@@ -10,7 +10,7 @@
             </p>
             <div class="flex justify-around">
                 <router-link
-                    :to="{ name: 'updateSummary', params: { summaryId: summary.id } }"
+                    :to="{ name: 'update-summary', params: { summaryId: summary.id } }"
                 >
                     <button class="p-1 mx-3 bg-grey-400" type="button">
                         Editar Temario

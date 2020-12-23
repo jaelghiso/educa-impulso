@@ -18,7 +18,7 @@ class CreateExitTicketAreasTable extends Migration
             $table->integer('user_id')->unsigned();
             $table->unsignedBigInteger('class_id');
             $table->text('description');
-            $table->text('url-exit-ticket');
+            $table->text('urlExitTicket');
             $table->timestamps();
         });
     }

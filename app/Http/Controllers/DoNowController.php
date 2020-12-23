@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\DoNowArea;
+use App\Models\Classroom;
 use Illuminate\Http\Request;
+use App\Http\Resources\DoNowResource;
 
 class DoNowController extends Controller
 {
@@ -13,7 +16,7 @@ class DoNowController extends Controller
      */
     public function index()
     {
-        //
+        return DoNowResource::collection(DoNowArea::latest()->paginate(16));
     }
 
     /**
@@ -32,9 +35,20 @@ class DoNowController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Classroom $classroom)
     {
-        //
+        $this->validate($request, [
+            'description' => 'required',
+            'urlDoNow' => 'url',
+        ]);
+
+        $doNowArea = new DoNowArea;
+
+        $doNowArea->user_id = $request->user_id;
+        $doNowArea->class_id = $classroom->id;
+        $doNowArea->description = $request->description;
+        $doNowArea->urlDoNow = $request->urlDoNow;
+        $doNowArea->save();
     }
 
     /**
@@ -43,9 +57,9 @@ class DoNowController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(DoNowArea $doNowArea)
     {
-        //
+        return new DoNowResource($doNowArea);
     }
 
     /**
@@ -66,9 +80,16 @@ class DoNowController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, DoNowArea $doNowArea)
     {
-        //
+        $this->validate($request, [
+            'description' => 'required',
+            'urlDoNow' => 'url',
+        ]);
+
+        $doNowArea->update($request->only(['description', 'urlDoNow']));
+
+        return new DoNowResource($doNowArea);
     }
 
     /**
@@ -77,8 +98,10 @@ class DoNowController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(DoNowArea $doNowArea)
     {
-        //
+        $doNowArea->delete();
+
+        return response()->json(null, 204);
     }
 }

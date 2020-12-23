@@ -37,6 +37,7 @@ import "simplemde/dist/simplemde.min.css";
 Vue.component("vue-simplemde", VueSimplemde);
 
 import Dashboard from "./pages/Dashboard";
+import TeacherDashboard from "./pages/Teacher-Dashboard";
 import Welcome from "./pages/Welcome";
 import Homepage from "./pages/Homepage";
 
@@ -113,43 +114,43 @@ const router = new VueRouter({
             props: true
         },
         {
-            path: "/admin/dashboard",
+            path: "/teacher/readCourse",
             name: "read-course",
             component: ReadCourse,
             props: true
         },
         {
-            path: "/admin/createCourse",
+            path: "/teacher/createCourse",
             name: "create-course",
             component: CreateCourse,
             props: true
         },
         {
-            path: "/admin/updateCourse",
+            path: "/teacher/updateCourse",
             name: "update-course",
             component: UpdateCourse,
             props: true
         },
         {
-            path: "/admin/dashboard",
+            path: "/teacher/readSummary",
             name: "read-summary",
             component: ReadSummary,
             props: true
         },
         {
-            path: "/admin/createSummary",
+            path: "/teacher/createSummary",
             name: "create-summary",
             component: CreateSummary,
             props: true
         },
         {
-            path: "/admin/updateSummary",
+            path: "/teacher/updateSummary",
             name: "update-summary",
             component: UpdateSummary,
             props: true
         },
         {
-            path: "/admin/createEvent",
+            path: "/teacher/createEvent",
             name: "create-event",
             component: CreateEvent,
             props: true
@@ -160,5 +161,5 @@ const router = new VueRouter({
 const app = new Vue({
     el: "#app",
     router,
-    components: { Dashboard, Welcome, Homepage }
+    components: { Dashboard, TeacherDashboard, Welcome, Homepage }
 });
