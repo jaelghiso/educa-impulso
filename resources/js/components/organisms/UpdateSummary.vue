@@ -1,6 +1,6 @@
 <template>
-    <div class="mb-4 md:w-8/12 md:mx-auto">
-        <form action class="card py-12 px-16 rounded shadow">
+    <div class="mb-4 mt-3 md:w-8/12 md:mx-auto">
+        <form action class="card mt-4 py-12 px-16 rounded shadow">
             <div class="field">
                 <div
                     :class="[
@@ -9,7 +9,7 @@
                     ]"
                 >
                     <span v-if="successfull" class="text-green-600"
-                        >Noticia actualizada!</span
+                        >Temario actualizado!</span
                     >
                 </div>
                 <div
@@ -21,11 +21,8 @@
                     <span v-if="errors.title" class="text-red-600">{{
                         errors.title[0]
                     }}</span>
-                    <span v-if="errors.subtitle" class="text-red-600">{{
-                        errors.subtitle[0]
-                    }}</span>
-                    <span v-if="errors.body" class="text-red-600">{{
-                        errors.body[0]
+                    <span v-if="errors.description" class="text-red-600">{{
+                        errors.description[0]
                     }}</span>
                 </div>
             </div>
@@ -33,7 +30,7 @@
             <div class="field mb-6">
                 <div class="control">
                     <label for="title" class="text-default py-2"
-                        >Título de la Noticia</label
+                        >Título de la Clase o Módulo</label
                     >
                     <input
                         type="title"
@@ -47,35 +44,28 @@
             </div>
             <div class="field mb-6">
                 <div class="control">
-                    <label for="subtitle" class="text-default py-2"
-                        >Subtítulo</label
-                    >
-                    <input
-                        type="subtitle"
-                        ref="subtitle"
-                        class="bg-transparent border border-muted-light rounded p-2 text-sm text-muted w-full"
-                        id="subtitle"
-                        placeholder="Ingresa el subtítulo"
-                        required
-                    />
-                </div>
-            </div>
-            <div class="field mb-6">
-                <div class="control">
-                    <label for="body" class="text-default py-2"
-                        >Contenido</label
+                    <label for="description" class="text-default py-2"
+                        >Temas de la Clase o Módulo</label
                     >
                     <textarea
                         class="bg-transparent border border-muted-light rounded p-2 text-sm text-default w-full"
-                        ref="body"
-                        id="body"
+                        ref="description"
+                        id="description"
                         rows="15"
                         col="10"
                         required
                     />
                 </div>
             </div>
-            <div class="field mb-6">
+            <div class="flex justify-start field mb-6">
+                <router-link :to="{ name: 'read-course'}">
+                    <button
+                    type="button"
+                    class="button is-default mr-4"
+                    >
+                    Cancelar
+                    </button>
+                </router-link>
                 <button
                     class="button block"
                     type="submit"
@@ -91,10 +81,10 @@
 <script>
 export default {
     mounted() {
-        this.getPost();
+        this.getSummary();
     },
     props: {
-        postId: {
+        summaryId: {
             type: Number,
             required: true
         }
@@ -103,17 +93,16 @@ export default {
         return {
             error: false,
             successfull: false,
-            errors: []
+            errors: [],
         };
     },
     methods: {
         update() {
             let title = this.$refs.title.value;
-            let subtitle = this.$refs.subtitle.value;
-            let body = this.$refs.body.value;
+            let body = this.$refs.description.value;
 
             axios
-                .put("/api/posts/" + this.postId, { title, subtitle, body })
+                .put("/api/summaries/" + this.summaryId, { title, description })
                 .then(response => {
                     this.successfull = true;
                     this.error = false;
@@ -129,14 +118,12 @@ export default {
                     }
                 });
             this.$refs.title.value = "";
-            this.$refs.title.value = "";
             this.$refs.description.value = "";
         },
-        getPost() {
-            axios.get("/api/posts/" + this.postId).then(response => {
+        getSummary() {
+            axios.get("/api/summaries/" + this.summaryId).then(response => {
                 this.$refs.title.value = response.data.data.title;
-                this.$refs.subtitle.value = response.data.data.subtitle;
-                this.$refs.body.value = response.data.data.body;
+                this.$refs.description.value = response.data.data.description;
             });
         }
     }

@@ -18,9 +18,9 @@ class CreateGuidedPracticeAreasTable extends Migration
             $table->integer('user_id')->unsigned();
             $table->unsignedBigInteger('class_id');
             $table->string('title');
-            $table->text('guided-practice-text');
+            $table->text('guidedPracticeText');
             $table->binary('image')->nullable();
-            $table->text('url-video-guided');
+            $table->text('urlVideoGuided');
             $table->timestamps();
         });
     }

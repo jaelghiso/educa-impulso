@@ -1,32 +1,16 @@
 <template>
-    <div class="mb-4 md:w-8/12 md:mx-auto">
-        <form action class="card py-12 px-16 rounded shadow">
-            <div class="field">
-                <div
-                    :class="[
-                        'control m-1 p-3',
-                        successfull ? 'bg-green-200 rounded' : ''
-                    ]"
+    <div class="mb-4 mt-3">
+        <form action class="md:mx-auto card mt-4 py-12 px-16 rounded shadow">
+            <div
+                :class="[
+                    'control m-1 p-3',
+                    successful ? 'bg-green-200 rounded' : ''
+                ]"
+            >
+                <span v-if="successful" class="text-green-600"
+                    >Temario publicado!</span
                 >
-                    <span v-if="successfull" class="text-green-600"
-                        >Temario actualizado!</span
-                    >
-                </div>
-                <div
-                    :class="[
-                        'control m-1 p-3',
-                        error ? 'bg-red-200 rounded' : ''
-                    ]"
-                >
-                    <span v-if="errors.title" class="text-red-600">{{
-                        errors.title[0]
-                    }}</span>
-                    <span v-if="errors.description" class="text-red-600">{{
-                        errors.description[0]
-                    }}</span>
-                </div>
             </div>
-
             <div class="field mb-6">
                 <div class="control">
                     <label for="title" class="text-default py-2"
@@ -40,6 +24,12 @@
                         placeholder="Ingresa el título"
                         required
                     />
+                    <p
+                        v-if="errors.title"
+                        class="bg-red-300 text-red-600 rounded p-2 m-1"
+                    >
+                        {{ errors.title[0] }}
+                    </p>
                 </div>
             </div>
             <div class="field mb-6">
@@ -47,23 +37,37 @@
                     <label for="description" class="text-default py-2"
                         >Temas de la Clase o Módulo</label
                     >
-                    <textarea
+                    <vue-simplemde
                         class="bg-transparent border border-muted-light rounded p-2 text-sm text-default w-full"
                         ref="description"
                         id="description"
-                        rows="15"
-                        col="10"
+                        v-model="value"
+                        placeholder="Ingresa la descripción aquí"
                         required
                     />
+                    <p
+                        v-if="errors.description"
+                        class="bg-red-300 text-red-600 rounded p-2 m-1"
+                    >
+                        {{ errors.description[0] }}
+                    </p>
                 </div>
             </div>
-            <div class="field mb-6">
+            <div class="flex justify-start field mb-6">
+                <router-link :to="{ name: 'home'}">
+                    <button
+                    type="button"
+                    class="button is-default mr-4"
+                    >
+                    Cancelar
+                    </button>
+                </router-link>
                 <button
-                    class="button block"
                     type="submit"
-                    @click.prevent="update"
+                    @click.prevent="create"
+                    class="button block"
                 >
-                    Actualizar &rarr;
+                    Enviar &rarr;
                 </button>
             </div>
         </form>
@@ -72,11 +76,12 @@
 
 <script>
 export default {
-    mounted() {
-        this.getSummary();
-    },
     props: {
-        summaryId: {
+        userId: {
+            type: Number,
+            required: true
+        },
+        courseId: {
             type: Number,
             required: true
         }
@@ -84,19 +89,23 @@ export default {
     data() {
         return {
             error: false,
-            successfull: false,
+            successful: false,
             errors: [],
+            value: '',
         };
     },
     methods: {
-        update() {
-            let title = this.$refs.title.value;
-            let body = this.$refs.description.value;
+        create() {
+            const formData = new FormData();
+            formData.append("title", this.$refs.title.value);
+            formData.append("description", this.$refs.description.value);
+            formData.append("user_id", this.userId);
+            formData.append("course_id", this.courseId);
 
             axios
-                .put("/api/summaries/" + this.summaryId, { title, description })
+                .post("/api/summaries", formData)
                 .then(response => {
-                    this.successfull = true;
+                    this.successful = true;
                     this.error = false;
                     this.errors = [];
                 })
@@ -104,19 +113,14 @@ export default {
                     if (!_.isEmpty(error.response)) {
                         if ((error.response.status = 422)) {
                             this.errors = error.response.data.errors;
-                            this.successfull = false;
+                            this.successful = false;
                             this.error = true;
                         }
                     }
                 });
+
             this.$refs.title.value = "";
             this.$refs.description.value = "";
-        },
-        getSummary() {
-            axios.get("/api/summaries/" + this.summaryId).then(response => {
-                this.$refs.title.value = response.data.data.title;
-                this.$refs.description.value = response.data.data.description;
-            });
         }
     }
 };

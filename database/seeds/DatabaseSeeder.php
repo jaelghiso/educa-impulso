@@ -24,6 +24,8 @@ class DatabaseSeeder extends Seeder
             ScheduleAreasTableSeeder::class,
             DoNowAreasTableSeeder::class,
             ExitTicketAreasTableSeeder::class,
+            GuidedPracticeAreasTableSeeder::class,
+            IndividualPracticeAreasTableSeeder::class,
         ]);
     }
 }

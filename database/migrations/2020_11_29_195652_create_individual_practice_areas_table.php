@@ -18,9 +18,9 @@ class CreateIndividualPracticeAreasTable extends Migration
             $table->integer('user_id')->unsigned();
             $table->unsignedBigInteger('class_id');
             $table->string('title');
-            $table->text('ind-practice-text');
+            $table->text('individualPracticeText');
             $table->binary('image')->nullable();
-            $table->text('highlight-list');
+            $table->text('highlightList');
             $table->timestamps();
         });
     }

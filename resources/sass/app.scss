@@ -54,3 +54,8 @@ button {
     padding: 20px;
     background-color: $yellow;
 }
+
+.form-control {
+    background-color: theme("colors.transparent");
+    @apply .border-accent .border-2 .text-hero .rounded-md;
+}

@@ -13,17 +13,6 @@
 
                     <!-- Right side of Navbar -->
                     <div class="flex items-center ml-auto">
-                        <router-link
-                            :to="{ name: 'login' }"
-                            class="text-sm text-muted-light text-white font-bold m-2"
-                        >
-                            Acceder</router-link
-                        >
-                        <router-link
-                            :to="{ name: 'register' }"
-                            class="text-sm text-muted-light text-white font-bold m-2"
-                            >Registrarse</router-link
-                        >
                     </div>
                 </div>
             </div>
@@ -34,7 +23,7 @@
 export default {
     data() {
         return {
-            logo_src: "images/logo-impulso.png"
+            logo_src: "./images/logo-impulso.png"
         };
     }
 };

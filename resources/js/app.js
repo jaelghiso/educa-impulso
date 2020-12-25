@@ -36,30 +36,33 @@ import "simplemde/dist/simplemde.min.css";
 
 Vue.component("vue-simplemde", VueSimplemde);
 
+import VModal from "vue-js-modal";
+Vue.use(VModal);
+
 import Dashboard from "./pages/Dashboard";
 import TeacherDashboard from "./pages/Teacher-Dashboard";
 import Welcome from "./pages/Welcome";
 import Homepage from "./pages/Homepage";
 
 import News from "./pages/News";
-import SingleNews from "./components/SingleNews";
+import SingleNews from "./components/organisms/SingleNews";
 
-import Login from "./pages/Login";
 import Register from "./pages/Register";
 
-import Read from "./components/Read";
-import Create from "./components/Create";
-import Update from "./components/Update";
+import Read from "./components/organisms/Read";
+import Create from "./components/organisms/Create";
+import Update from "./components/organisms/Update";
 
-import ReadCourse from "./components/ReadCourse";
-import CreateCourse from "./components/CreateCourse";
-import UpdateCourse from "./components/UpdateCourse";
+import ReadCourse from "./components/organisms/ReadCourse";
+import CreateCourse from "./components/organisms/CreateCourse";
+import UpdateCourse from "./components/organisms/UpdateCourse";
 
-import ReadSummary from "./components/ReadSummary";
-import CreateSummary from "./components/CreateSummary";
-import UpdateSummary from "./components/UpdateSummary";
+import ReadSummary from "./components/organisms/ReadSummary";
+import CreateSummary from "./components/organisms/CreateSummary";
+import UpdateSummary from "./components/organisms/UpdateSummary";
 
-import CreateEvent from "./components/CreateEvent";
+import CreateEvent from "./components/organisms/CreateEvent";
+import createClassroom from "./components/CreateClassroom";
 
 Vue.use(VueRouter);
 
@@ -69,12 +72,6 @@ const router = new VueRouter({
         {
             path: "/",
             name: "home",
-            props: true
-        },
-        {
-            path: "/login",
-            name: "login",
-            component: Login,
             props: true
         },
         {
@@ -153,6 +150,12 @@ const router = new VueRouter({
             path: "/teacher/createEvent",
             name: "create-event",
             component: CreateEvent,
+            props: true
+        },
+        {
+            path: "/teacher/createClassroom",
+            name: "create-classroom",
+            component: createClassroom,
             props: true
         }
     ]

@@ -1,29 +1,31 @@
 <template>
-    <div id="posts" class="mt-4">
+    <div id="posts" class="md:flex md:flex-wrap mt-4">
         <div
-            class="flex flex-row justify-between border p-3 my-4"
+            class="card flex flex-col border p-3 my-4 mr-2" style="height: 200px; width:255px;"
             v-for="post in posts"
             :key="post.id"
         >
-            <p class="flex justify-around mr-4">
+            <h3 class="font-normal text-xl py-2 -ml-5 mb-3 border-l-4 border-accent-light pl-4">
                 {{ post.title }}
-            </p>
-            <div class="flex justify-around">
-                <router-link
-                    :to="{ name: 'update', params: { postId: post.id } }"
-                >
-                    <button class="p-1 mx-3 bg-grey-400" type="button">
-                        Editar News
-                    </button>
-                </router-link>
+            </h3>
+            <p class="text-sm text-muted mb-3">{{ post.subtitle }}</p>
+            <footer class="flex content-end justify-end mb-2 text-muted">
                 <button
-                    class="p-1 mx-3 bg-red-500"
+                    class="p-1 mx-3 text-sm font-bold text-grey-700"
                     type="button"
                     @click="deletePost(post.id)"
                 >
-                    Borrar News
+                    Borrar
                 </button>
-            </div>
+                <router-link
+                    :to="{ name: 'update', params: { postId: post.id } }"
+                >
+                    <button class="p-1 mx-3 text-sm font-bold text-green-600" type="button">
+                        Editar
+                    </button>
+                </router-link>
+                
+            </footer>
         </div>
 
         <div class="">

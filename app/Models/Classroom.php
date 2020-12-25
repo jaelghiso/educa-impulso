@@ -29,4 +29,14 @@ class Classroom extends Model
 
         return $this->belongsTo(Course::class);
     }
+
+    public function bigWords()
+    {
+        return $this->hasOne(BigWordsArea::class);
+    }
+
+    public function wwbatArea()
+    {
+        return $this->hasOne(WwbatArea::class);
+    }
 }

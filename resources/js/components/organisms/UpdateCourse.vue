@@ -1,6 +1,6 @@
 <template>
-    <div class="mb-4 md:w-8/12 md:mx-auto">
-        <form action class="card py-12 px-16 rounded shadow">
+    <div class="mb-4 mt-3 md:w-8/12 md:mx-auto">
+        <form action class="card mt-4 py-12 px-16 rounded shadow">
             <div class="field">
                 <div
                     :class="[
@@ -57,7 +57,16 @@
                     />
                 </div>
             </div>
-            <div class="field mb-6">
+            <div class="flex justify-start field mb-6">
+                <router-link :to="{ name: 'read-course'}">
+                    <button
+                    type="button"
+                    class="button is-default mr-4"
+                    >
+                    Cancelar
+                    </button>
+                </router-link>
+                
                 <button
                     class="button block"
                     type="submit"

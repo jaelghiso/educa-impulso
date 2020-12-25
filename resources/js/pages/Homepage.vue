@@ -1,6 +1,7 @@
 <template>
     <div>
-        <Header />
+        <Header>
+        </Header>
         <div class="container mx-auto mt-2">
             <header class="flex flex-row justify-between">
                 Bienvenido, {{ userName }}
@@ -23,8 +24,8 @@
 </template>
 
 <script>
-import Header from "../components/Header";
-import Footer from "../components/Footer";
+import Header from "../components/organisms/Header";
+import Footer from "../components/organisms/Footer";
 export default {
     components: {
         Header,

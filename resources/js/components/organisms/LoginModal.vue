@@ -1,7 +1,19 @@
 <template>
-    <div class="">
-        <div class="col-md-8 offset-md-4 text-center">
-            <h1 class="text-2xl font-normal mb-10 text-muted text-center">
+    <modal name="login-modal" classes="flex flex-wrap bg-card rounded-lg" height="auto" width="60%">
+        <div class="md:w-1/2">
+            <img :src="illustration_src"
+                alt="illustration-login"
+                class=""/>
+        </div>
+        <div class="md:w-1/2 md:mx-auto mt-6">
+            <div class="flex justify-center mt-4">
+                <img
+                    :src="logo_src"
+                    alt="logo-impulso"
+                    class=" logo--setup-header"
+                />
+            </div>
+            <h1 class="text-3xl font-normal mb-10 text-hero font-bold text-center">
                 EducaImpulso
             </h1>
             <p class="text-muted mb-4 text-center">
@@ -10,7 +22,7 @@
             <form
                 action=""
                 id="formLogin"
-                class="md:w-1/2 md:mx-auto card py-12 px-16 rounded shadow"
+                class="card py-12 px-16"
             >
                 <div class="field mb-6">
                     <div class="control">
@@ -65,7 +77,7 @@
                         >
                     </div>
                 </div>
-                <div class="field mb-6">
+                <div class="flex justify-center field mb-6">
                     <div class="col-md-8 offset-md-4 text-center">
                         <button
                             class="button mr-2"
@@ -78,7 +90,7 @@
                 </div>
             </form>
         </div>
-    </div>
+    </modal>
 </template>
 <script>
 export default {
@@ -90,7 +102,8 @@ export default {
     },
     data() {
         return {
-            logo_src: "images/logo-impulso.png",
+            logo_src: "./images/logo-impulso.png",
+            illustration_src: "./images/illustration-login.png",
             user: "",
             pass: "",
             error: false,

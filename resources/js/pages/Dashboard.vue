@@ -1,30 +1,6 @@
 <template>
     <div>
-        <nav class="bg-header shadow">
-            <div class="container mx-auto">
-                <div class="flex justify-between item-center py-3">
-                    <a class="flex justify-between item-center">
-                        <img
-                            :src="logo_src"
-                            alt="logo-impulso"
-                            class="logo--setup-header"
-                        />
-                    </a>
-                    <div class="flex items-center ml-auto">
-                        <router-link
-                            :to="{ name: 'read' }"
-                            class="text-sm text-white font-bold m-2"
-                            >Admin News</router-link
-                        >
-                        <router-link
-                            :to="{ name: 'home' }"
-                            class="text-sm text-white font-bold m-2"
-                            >Home</router-link
-                        >
-                    </div>
-                </div>
-            </div>
-        </nav>
+        <Header />
         <div class="container mx-auto mt-2">
             <header class="my-4">
                 Bienvenido, {{ userName }}
@@ -35,12 +11,12 @@
                     >Logout</a
                 >
             </header>
-            <div class="container mx-auto">
-                <div class="flex flex-row">
-                    <div class="flex justify-start items-start py-3 my-3 mr-4">
+            <div class="container md:flex md:flex-wrap mx-auto">
+                <div class="flex flex-col w-3/12 justify-start">
+                    <div class="py-3 my-3 mr-4">
                         <div class="jumbotron mt-4">
                             <h1 class="bg--primary-text py-2">
-                                Bienvenido a<br />
+                                ¡Bienvenido a<br />
                                 <span
                                     class="text-yellow-600 text-semibold text-3xl"
                                     >Admin Noticias!</span
@@ -63,7 +39,10 @@
                             >
                         </div>
                     </div>
-                    <div class="flex justify-around w-9/12 mx-auto">
+                    
+                </div>
+                <div class="flex flex-col w-9/12">
+                    <div class="content-start mx-5">
                         <router-view :userName="userName"></router-view>
                     </div>
                 </div>
@@ -75,13 +54,13 @@
 </template>
 
 <script>
-import Footer from "../components/Footer";
+import Header from "../components/organisms/Header";
+import Footer from "../components/organisms/Footer";
 
 export default {
-    components: { Footer },
+    components: { Footer, Header },
     data() {
         return {
-            logo_src: "images/logo-impulso.png"
         };
     },
     props: {

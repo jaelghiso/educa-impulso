@@ -1,29 +1,29 @@
 <template>
-    <div id="summaries" class="mt-4">
+    <div id="summaries" class="md:flex md:flex-wrap mt-4">
         <div
-            class="flex flex-row justify-between border p-3 my-4"
+            class="card flex flex-col border p-3 my-4 mr-2" style="height: 150px; width:255px;"
             v-for="summary in summaries"
             :key="summary.id"
         >
-            <p class="flex justify-around mr-4">
+            <h3 class="font-normal text-xl py-2 -ml-5 mb-3 border-l-4 border-accent-light pl-4">
                 {{ summary.title }}
-            </p>
-            <div class="flex justify-around">
-                <router-link
-                    :to="{ name: 'update-summary', params: { summaryId: summary.id } }"
-                >
-                    <button class="p-1 mx-3 bg-grey-400" type="button">
-                        Editar Temario
-                    </button>
-                </router-link>
+            </h3>
+            <footer class="flex content-end justify-end mb-2 text-muted">
                 <button
-                    class="p-1 mx-3 bg-red-500"
+                    class="p-1 mx-3 text-sm font-bold text-grey-700"
                     type="button"
                     @click="deleteSummary(summary.id)"
                 >
-                    Borrar Temario
+                    Borrar
                 </button>
-            </div>
+                <router-link
+                    :to="{ name: 'update-summary', params: { summaryId: summary.id } }"
+                >
+                    <button class="p-1 mx-3 text-sm font-bold text-green-600" type="button">
+                        Editar
+                    </button>
+                </router-link>
+            </footer>
         </div>
 
         <div class="">

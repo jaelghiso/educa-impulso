@@ -1,6 +1,6 @@
 <template>
-    <div class="mb-4">
-        <form action class="md:mx-auto card py-12 px-16 rounded shadow">
+    <div class="mb-4 mt-3">
+        <form action class="md:mx-auto card mt-4 py-12 px-16 rounded shadow">
             <div
                 :class="[
                     'control m-1 p-3',
@@ -55,7 +55,16 @@
                     </p>
                 </div>
             </div>
-            <div class="fied mb-6">
+            <div class="flex justify-start field mb-6">
+                <router-link :to="{ name: 'home'}">
+                    <button
+                    type="button"
+                    class="button is-default mr-4"
+                    >
+                    Cancelar
+                    </button>
+                </router-link>
+                
                 <button
                     type="submit"
                     @click.prevent="create"

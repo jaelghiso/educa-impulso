@@ -39,10 +39,10 @@ class PostController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
+            'user_id' => 'required',
             'title' => 'required',
             'subtitle' => 'required',
             'body' => 'required',
-            'user_id' => 'required',
             'image' => 'required|mimes:jpeg,png,jpg,gif,svg',
         ]);
 

@@ -1,5 +1,5 @@
 <template>
-    <div class="jumbotron">
+    <div>
         <div class="col-md-8 offset-md-4 text-center">
             <h1 class="text-2xl font-normal mb-10 text-muted text-center">
                 EducaImpulso
@@ -13,7 +13,7 @@
                 class="md:w-1/2 md:mx-auto card py-12 px-16 rounded shadow"
             >
                 <div class="field mb-6">
-                    <label for="name" class="text-default text-sm mb-2 block"
+                    <label for="name" class="text-default text-left text-sm mb-2 block"
                         >Nombre</label
                     >
                     <input
@@ -30,7 +30,7 @@
                     </p>
                 </div>
                 <div class="field mb-6">
-                    <label for="email" class="text-default text-sm mb-2 block"
+                    <label for="email" class="text-default text-left text-sm mb-2 block"
                         >E-Mail</label
                     >
                     <input
@@ -48,7 +48,7 @@
                 <div class="field mb-6">
                     <label
                         for="password"
-                        class="text-default text-sm mb-2 block"
+                        class="text-default text-left text-sm mb-2 block"
                         >Contraseña</label
                     >
                     <input
@@ -66,7 +66,7 @@
                 <div class="field mb-6">
                     <label
                         for="password-confirm"
-                        class="text-default text-sm mb-2 block"
+                        class="text-default text-left text-sm mb-2 block"
                         >Confirmar Contraseña</label
                     >
                     <input
@@ -84,7 +84,13 @@
                         {{ errors.password_confirmation[0] }}
                     </p>
                 </div>
-                <div class="field mb-6">
+                <div class="flex justify-start field mb-6">
+                    <button
+                    type="button"
+                    class="button is-default mr-4"
+                    >
+                    Cancelar
+                    </button>
                     <div class="text-center">
                         <button
                             type="submit"

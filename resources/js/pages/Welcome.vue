@@ -1,7 +1,22 @@
 <template>
     <div>
         <Header />
-
+        <div class="container flex justify-end mx-auto mt-2">
+            <button class="text-sm text-default font-bold m-2" type="button"
+                @click.prevent="$modal.show('login-modal')"
+            >
+                Acceder
+            </button> 
+            <!-- <router-link
+            :to="{ name: 'login' }"
+            class=""
+            >Acceder</router-link> -->
+            <router-link
+            :to="{ name: 'register' }"
+            class="text-sm text-default font-bold m-2"
+            >Registrarse</router-link>
+        </div>
+        <login-modal></login-modal>
         <div class="container mx-auto py-4">
             <router-view></router-view>
         </div>
@@ -10,13 +25,15 @@
     </div>
 </template>
 <script>
-import Header from "../components/Header";
-import Footer from "../components/Footer";
+import Header from "../components/organisms/Header";
+import Footer from "../components/organisms/Footer";
+import LoginModal from "../components/organisms/LoginModal";
 
 export default {
     components: {
         Header,
-        Footer
+        Footer,
+        LoginModal
     }
 };
 </script>

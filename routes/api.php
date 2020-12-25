@@ -28,3 +28,5 @@ Route::apiResource('bigwords-areas', 'BigWordsAreaController');
 Route::apiResource('schedule-areas', 'ScheduleAreaController');
 Route::apiResource('doNow-areas', 'DoNowController');
 Route::apiResource('exitTicket-areas', 'ExitTicketController');
+Route::apiResource('guidedPractice-areas', 'GuidedPracticeController');
+Route::apiResource('individualPractice-areas', 'IndividualPracticeController');
