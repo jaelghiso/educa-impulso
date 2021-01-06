@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1 class="mt-4 text-center text-2xl">Noticias</h1>
+        <h1 class="mt-4 text-center text-4xl text-bold">Noticias</h1>
         <div class="flex flex-row" id="posts">
             <div class="cardNews" v-for="post in posts" :key="post.id">
                 <img
@@ -14,7 +14,7 @@
                     <h3 class="cardNews-titleText">
                         {{ post.title }}
                     </h3>
-                    <p class="text-secondary cardNews-descriptionText">
+                    <p class="text-default cardNews-descriptionText mb-3">
                         {{ post.subtitle }}
                     </p>
                     <router-link
@@ -23,17 +23,17 @@
                         >Leer más &rarr;</router-link
                     >
                 </div>
-                <div class="text-muted p-3">
+                <div class="text-muted p-3 mt-3">
                     Posteado {{ post.created_at | date }} por
-                    <span class="text-primary"></span>
+                    <span class="text-default">{{ post.author }}</span>
                     <div>
                         <span class="p-2">
-                            <font-awesome-icon :icon="['fas', 'heart']" />Likes
+                            <font-awesome-icon :icon="['fas', 'heart']" /> Likes
                         </span>
                         <span class="p-2">
                             <font-awesome-icon
                                 :icon="['fas', 'comment-dots']"
-                            />Comentarios
+                            /> Comentarios
                         </span>
                     </div>
                 </div>

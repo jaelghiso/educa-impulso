@@ -14,29 +14,29 @@ class UserTableSeeder extends Seeder
      */
     public function run()
     {
-        $role_regular_user = Role::where('name', 'user')->first();
-        $role_admin_user = Role::where('name', 'admin')->first();
-        $role_teacher_user = Role::where('name', 'admin')->first();
+        $role_user = Role::where('name', 'user')->first();
+        $role_admin = Role::where('name', 'admin')->first();
+        $role_teacher = Role::where('name', 'teacher')->first();
 
         $user = new User;
         $user->name = 'Richard Lockhart';
         $user->email = 'rlockhart@liceoimpulso.edu.uy';
         $user->password = bcrypt('richard*1234');
         $user->save();
-        $user->roles()->attach($role_regular_user);
+        $user->roles()->attach($role_user);
 
-        $admin = new User;
-        $admin->name = 'Jael Ghiso';
-        $admin->email = 'jael.ghiso@gmail.com';
-        $admin->password = bcrypt('Fiorella*05');
-        $admin->save();
-        $admin->roles()->attach($role_admin_user);
+        $user = new User;
+        $user->name = 'Jael Ghiso';
+        $user->email = 'jael.ghiso@gmail.com';
+        $user->password = bcrypt('Fiorella*05');
+        $user->save();
+        $user->roles()->attach($role_admin);
 
-        $teacher = new User;
-        $teacher->name = 'Javier Castro';
-        $teacher->email = 'jcastro@liceoimpulso.edu.uy';
-        $teacher->password = bcrypt('javier*1234');
-        $teacher->save();
-        $teacher->roles()->attach($role_teacher_user);
+        $user = new User;
+        $user->name = 'Javier Castro';
+        $user->email = 'jcastro@liceoimpulso.edu.uy';
+        $user->password = bcrypt('javier*1234');
+        $user->save();
+        $user->roles()->attach($role_teacher);
     }
 }

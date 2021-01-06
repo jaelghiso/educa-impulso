@@ -1,28 +1,28 @@
 <template>
-    <div id="courses" class="md:flex md:flex-wrap mt-4">
+    <div id="classrooms" class="md:flex md:flex-wrap mt-4">
         <div
             class="card flex flex-col border p-3 my-4 mr-2" style="height: 150px; width:255px;"
-            v-for="course in courses"
-            :key="course.id"
+            v-for="classroom in classrooms"
+            :key="classroom.id"
         >
             <h3 class="font-normal text-xl py-2 -ml-5 mb-3 border-l-4 border-accent-light pl-4">
-                {{ course.title }}
+                {{ classroom.title }}
             </h3>
             <footer class="flex content-end justify-end mb-2 text-muted">
                 <button
                     class="p-1 mx-3 text-sm font-bold text-grey-700"
                     type="button"
-                    @click="deleteCourse(course.id)"
+                    @click="deleteClasroom(classroom.id)"
                 >
                     Borrar
                 </button>
-                <router-link
+                <!-- <router-link
                     :to="{ name: 'update-course', params: { courseId: course.id } }"
                 >
                     <button class="p-1 mx-3 text-sm font-bold text-green-600" type="button">
                         Editar
                     </button>
-                </router-link>
+                </router-link> -->
 
             </footer>
         </div>
@@ -47,33 +47,32 @@
         </div>
     </div>
 </template>
-
 <script>
 export default {
     mounted() {
-        this.getCourses();
+        this.getClassrooms();
     },
     data() {
         return {
-            courses: {},
+            classrooms: {},
             next: null,
             prev: null
         };
     },
     methods: {
-        getCourses(address) {
-            axios.get(address ? address : "/api/courses").then(response => {
-                this.courses = response.data.data;
+        getClassrooms(address) {
+            axios.get(address ? address : "/api/classrooms").then(response => {
+                this.classrooms = response.data.data;
                 this.prev = response.data.links.prev;
                 this.next = response.data.links.next;
             });
         },
-        deleteCourse(id) {
-            axios.delete("/api/courses/" + id).then(
-                response => this.getCourses(),
+        deleteClasroom(id) {
+            axios.delete("/api/classrooms/" + id).then(
+                response => this.getClassrooms(),
                 swal({
                     title: "Borrada!",
-                    text: "Este curso ha sido eliminado",
+                    text: "Este clase ha sido eliminada",
                     icon: "success",
                     closeOnClickOutside: false,
                     closeOnEsc: false
@@ -81,8 +80,8 @@ export default {
             );
         },
         navigate(address) {
-            this.getCourses(address);
+            this.getClassrooms(address);
         }
     }
-};
+}
 </script>

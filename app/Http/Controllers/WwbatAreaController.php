@@ -37,7 +37,7 @@ class WwbatAreaController extends Controller
      */
     public function store(Request $request, Classroom $classroom)
     {
-        $this->validate($request, ['description' => 'required',]);
+        $this->validate($request, ['description' => 'required']);
 
         $wwbatArea = new WwbatArea;
 
@@ -80,7 +80,7 @@ class WwbatAreaController extends Controller
      */
     public function update(Request $request, WwbatArea $wwbatArea)
     {
-        $this->validate($request, ['description' => 'required',]);
+        $this->validate($request, ['description' => 'required']);
 
         $wwbatArea->update($request->only(['description']));
 

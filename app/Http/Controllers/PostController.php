@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use App\Models\Post;
+use App\Models\User;
 use App\Http\Resources\PostResource;
 
 
@@ -36,7 +37,7 @@ class PostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, User $user)
     {
         $this->validate($request, [
             'user_id' => 'required',
@@ -58,6 +59,7 @@ class PostController extends Controller
         }
 
         $post->user_id = $request->user_id;
+        $post->author = $this->$user->name;
         $post->title = $request->title;
         $post->subtitle = $request->subtitle;
         $post->body = $request->body;

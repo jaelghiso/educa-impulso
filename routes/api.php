@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Resources\WWbatAreaResource;
+use App\Models\Classroom;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -23,6 +24,7 @@ Route::apiResource('posts', 'PostController');
 Route::apiResource('courses', 'CourseController');
 Route::apiResource('summaries', 'SummaryController');
 Route::apiResource('events', 'EventController');
+Route::apiResource('classrooms', 'ClassroomController');
 Route::apiResource('wwbat-areas', 'WwbatAreaController');
 Route::apiResource('bigwords-areas', 'BigWordsAreaController');
 Route::apiResource('schedule-areas', 'ScheduleAreaController');

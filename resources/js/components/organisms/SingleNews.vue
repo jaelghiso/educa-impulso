@@ -7,19 +7,20 @@
                 >&larr; Volver</router-link
             >
             <div class="jumbotron">
-                <h3 class="text-center text-bold text-2xl mt-4 bg--purple-text">
+                <h3 class="text-center text-bold text-4xl mt-4 text-accent">
                     {{ post.title }}
                 </h3>
-                <span class="lead">por {{ postAuhor }}</span>
-                <h6 class="my-2 text-secondary">{{ post.subtitle }}</h6>
+                <span class="lead">por {{ post.author }}</span>
+                <h6 class="my-2 text-default text-2xl">{{ post.subtitle }}</h6>
                 <hr class="py-3" />
                 <div class="text-muted py-3">
                     Posteado {{ post.created_at | date }}
-                    <span class="text-primary"></span>
+                    <span class="text-default"></span>
                 </div>
                 <hr />
                 <div>
-                    <img
+                    <div class="flex justify-center py-2">
+                        <img
                         :src="
                             post.image
                                 ? '/uploads/posts/' + post.image
@@ -28,6 +29,8 @@
                         alt="post image"
                         class="card-img-top"
                     />
+                    </div>
+
                     <p class="mt-5 py-4">{{ post.body }}</p>
                 </div>
                 <hr class="py-3" />
@@ -49,10 +52,6 @@ export default {
             type: String,
             required: true
         },
-        postAuhor: {
-            type: String,
-            required: true
-        }
     },
     data() {
         return {

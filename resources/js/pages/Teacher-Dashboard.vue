@@ -30,7 +30,7 @@
                             <hr class="py-3 mt-5" />
                             <p class="text-sm mb-4">
                                 Presiona aquí debajo para crear
-                                un nuevo Curso o un nuevo Temario:
+                                un nuevo Curso:
                             </p>
                             <router-link
                                 :to="{ name: 'create-course', params: { userId } }"
@@ -95,6 +95,11 @@
                                     >Clases!</span
                                 >
                             </h1>
+                            <router-link
+                                :to="{ name: 'read-classroom' }"
+                                class="button my-3"
+                                >Administrar &rarr;</router-link
+                            >
                             <hr class="py-3 mt-5" />
                             <p class="text-sm mb-4">
                                 Presiona aquí debajo para crear<br />

@@ -17,7 +17,7 @@
                 EducaImpulso
             </h1>
             <p class="text-muted mb-4 text-center">
-                Bienvenido Editor! Ingresa a tu cuenta
+                ¡Bienvenido/a! Ingresa a tu cuenta
             </p>
             <form
                 action=""

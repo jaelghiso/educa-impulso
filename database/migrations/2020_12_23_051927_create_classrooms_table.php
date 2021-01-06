@@ -17,6 +17,7 @@ class CreateClassroomsTable extends Migration
             $table->id();
             $table->integer('user_id')->unsigned();
             $table->unsignedBigInteger('course_id');
+            $table->unsignedBigInteger('summary_id');
             $table->unsignedBigInteger('wwbat_areas_id');
             $table->unsignedBigInteger('big_words_areas_id');
             $table->unsignedBigInteger('schedule_areas_id');
@@ -25,6 +26,8 @@ class CreateClassroomsTable extends Migration
             $table->unsignedBigInteger('individual_practice_areas_id');
             $table->unsignedBigInteger('exit_ticket_areas_id');
 
+            $table->foreign('course_id')->references('id')->on('courses');
+            $table->foreign('summary_id')->references('id')->on('summaries');
             $table->foreign('wwbat_areas_id')->references('id')->on('wwbat_areas');
             $table->foreign('big_words_areas_id')->references('id')->on('big_words_areas');
             $table->foreign('schedule_areas_id')->references('id')->on('schedule_areas');

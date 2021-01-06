@@ -62,7 +62,9 @@ import CreateSummary from "./components/organisms/CreateSummary";
 import UpdateSummary from "./components/organisms/UpdateSummary";
 
 import CreateEvent from "./components/organisms/CreateEvent";
+
 import createClassroom from "./components/CreateClassroom";
+import readClassroom from "./components/organisms/ReadClassroom";
 
 Vue.use(VueRouter);
 
@@ -156,6 +158,12 @@ const router = new VueRouter({
             path: "/teacher/createClassroom",
             name: "create-classroom",
             component: createClassroom,
+            props: true
+        },
+        {
+            path: "/teacher/readClassroom",
+            name: "read-classroom",
+            component: readClassroom,
             props: true
         }
     ]
