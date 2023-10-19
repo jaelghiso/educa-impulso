@@ -12,7 +12,7 @@
     "devDependencies": {
         "axios": "^0.19",
         "cross-env": "^7.0.3",
-        "laravel-mix": "^5.0.9",
+        "laravel-mix": "^6.0.49",
         "lodash": "^4.17.19",
         "resolve-url-loader": "^2.3.1",
         "sass": "^1.30.0",
@@ -32,7 +32,7 @@
         "pusher-js": "^5.1.1",
         "simplemde-theme-base": "^0.2.1",
         "sweetalert": "^2.1.2",
-        "tailwindcss": "^1.9.6",
+        "tailwindcss": "^3.3.3",
         "vue-js-modal": "^2.0.0-rc.6",
         "vue-router": "^3.4.9",
         "vue-simplemde": "^1.1.2",
